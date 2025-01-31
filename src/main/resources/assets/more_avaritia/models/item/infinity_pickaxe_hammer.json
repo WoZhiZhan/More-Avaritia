@@ -1,0 +1,11 @@
+{
+  "parent": "more_avaritia:item/infinity_pickaxe",
+  "textures": {
+    "layer0": "more_avaritia:items/infinity_pickaxe_hammer",
+    "mask": "more_avaritia:items/infinity_pickaxe_hammer_mask"
+  },
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "#mask"
+  }
+}

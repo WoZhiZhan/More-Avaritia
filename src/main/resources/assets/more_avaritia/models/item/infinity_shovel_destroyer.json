@@ -1,0 +1,11 @@
+{
+  "parent": "more_avaritia:item/infinity_shovel",
+  "textures": {
+    "layer0": "more_avaritia:items/infinity_shovel_destroyer",
+    "mask": "more_avaritia:items/infinity_shovel_destroyer_mask"
+  },
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "#mask"
+  }
+}

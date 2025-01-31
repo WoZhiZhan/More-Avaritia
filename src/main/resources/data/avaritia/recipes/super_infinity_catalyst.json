@@ -1,0 +1,28 @@
+{
+	"type": "avaritia:extreme_shaped",
+	"result": {
+		"item": "more_avaritia:super_infinity_catalyst"
+	},
+	"pattern": [
+		"AAAAAAAAA",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"BBBBBBBBB"
+	],
+	"key": {
+		"A": {
+			"item": "avaritia:infinity_catalyst"
+		},
+		"N": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"B": {
+			"item": "more_avaritia:infinity_singularity"
+		}
+	}
+}

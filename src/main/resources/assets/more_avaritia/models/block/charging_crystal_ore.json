@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "more_avaritia:blocks/charging_crystal_ore",
+    "up": "more_avaritia:blocks/charging_crystal_ore",
+    "north": "more_avaritia:blocks/charging_crystal_ore",
+    "east": "more_avaritia:blocks/charging_crystal_ore",
+    "south": "more_avaritia:blocks/charging_crystal_ore",
+    "west": "more_avaritia:blocks/charging_crystal_ore",
+    "particle": "more_avaritia:blocks/charging_crystal_ore"
+  }
+}

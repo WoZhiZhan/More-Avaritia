@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "121",
+    "111"
+  ],
+  "key": {
+    "1": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "2": {
+      "item": "totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinitytotem",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "more_avaritia:items/layer_0",
+    "layer1": "more_avaritia:items/wei_biao_ti_-1",
+    "mask": "more_avaritia:items/wei_biao_ti_-1"
+  },
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "#mask"
+  }
+}

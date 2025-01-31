@@ -1,0 +1,25 @@
+{
+	"type": "avaritia:extreme_shaped",
+	"result": {
+		"item": "more_avaritia:infinity_apple"
+	},
+	"pattern": [
+		"IIIIIIIII",
+		"I       I",
+		"I       I",
+		"I       I",
+		"I   B   I",
+		"I       I",
+		"I       I",
+		"I       I",
+		"IIIIIIIII"
+	],
+	"key": {
+		"I": {
+			"item": "avaritia:neutronium_ingot"
+		},
+		"B": {
+			"item": "apple"
+		}
+	}
+}

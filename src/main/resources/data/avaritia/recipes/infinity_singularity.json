@@ -1,0 +1,12 @@
+{
+  "type": "avaritia:compressor",
+  "result": {
+    "item": "more_avaritia:infinity_singularity"
+  },
+  "cost": 200,
+  "ingredients": [
+    {
+      "item": "more_avaritia:endless_energy"
+    }
+  ]
+}

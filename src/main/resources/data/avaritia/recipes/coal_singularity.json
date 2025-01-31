@@ -1,0 +1,12 @@
+{
+  "type": "avaritia:compressor",
+  "result": {
+    "item": "more_avaritia:coal_singularity"
+  },
+  "cost": 800,
+  "ingredients": [
+    {
+      "item": "coal"
+    }
+  ]
+}

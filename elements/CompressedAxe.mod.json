@@ -1,0 +1,31 @@
+{
+  "_fv": 47,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Axe",
+    "renderType": 0,
+    "texture": "neutron_axe",
+    "customModelName": "Normal",
+    "name": "Compressed Neutron Axe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "harvestLevel": 30,
+    "efficiency": 30.0,
+    "attackSpeed": 0.9,
+    "enchantability": 100,
+    "damageVsEntity": 18.0,
+    "usageCount": 6000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:CompressedNeutronIngot"
+      }
+    ],
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

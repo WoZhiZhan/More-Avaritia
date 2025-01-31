@@ -1,0 +1,15 @@
+{
+  "_fv": 47,
+  "_type": "itemextension",
+  "definition": {
+    "item": {
+      "value": "CUSTOM:EndlessEnergy"
+    },
+    "enableFuel": true,
+    "fuelPower": {
+      "fixedValue": 999999.0
+    },
+    "hasDispenseBehavior": false,
+    "compostLayerChance": 1.0
+  }
+}

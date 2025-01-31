@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "more_avaritia:items/idle",
+    "mask": "more_avaritia:items/idle_mask"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1.0
+      },
+      "model": "more_avaritia:item/infinity_bow_pull_0"
+    },
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1.0,
+        "more_avaritia:pull": 0.65
+      },
+      "model": "more_avaritia:item/infinity_bow_pull_1"
+    },
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1.0,
+        "more_avaritia:pull": 0.9
+      },
+      "model": "more_avaritia:item/infinity_bow_pull_2"
+    }
+  ],
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "#mask"
+  }
+}

@@ -1,0 +1,31 @@
+{
+	"type": "avaritia:extreme_shaped",
+	"result": {
+		"item": "more_avaritia:infinity_sword"
+	},
+	"pattern": [
+		"       II",
+		"      III",
+		"     III ",
+		"    III  ",
+		" C III   ",
+		"  CII    ",
+		"  NC     ",
+		" N  C    ",
+		"X        "
+	],
+	"key": {
+		"I": {
+			"item": "avaritia:infinity_ingot"
+		},
+		"C": {
+			"item": "more_avaritia:endless_energy"
+		},
+		"N": {
+			"item": "more_avaritia:infinity_singularity"
+		},
+		"X": {
+			"item": "avaritia:infinity_sword"
+		}
+	}
+}

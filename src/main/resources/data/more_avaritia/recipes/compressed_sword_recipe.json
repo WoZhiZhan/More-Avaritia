@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "1": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "2": {
+      "item": "more_avaritia:neutron_stick"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:compressed_sword",
+    "count": 1
+  }
+}

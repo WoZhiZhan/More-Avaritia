@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="more_avaritia"
+version="1.1"
+displayName="More_Avaritia"
+credits="wzz."
+displayURL="https://space.bilibili.com/693257920"
+authors="Wzz"
+[[dependencies.more_avaritia]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.more_avaritia]]
+modId="avaritia"
+mandatory=true
+versionRange="[4.0.1.1]"
+ordering="AFTER"
+side="BOTH"
+
+
+
+

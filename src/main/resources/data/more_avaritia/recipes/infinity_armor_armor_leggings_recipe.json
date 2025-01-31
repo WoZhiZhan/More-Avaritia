@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "1": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "2": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "3": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "5": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "6": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "8": {
+      "item": "avaritia:infinity_ingot"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_armor_armor_leggings",
+    "count": 1
+  }
+}

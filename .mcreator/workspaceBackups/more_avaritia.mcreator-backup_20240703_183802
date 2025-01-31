@@ -1,0 +1,782 @@
+{
+  "mod_elements": [
+    {
+      "name": "CompressedNeutronIngot",
+      "type": "item",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_neutron_ingot",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/compressed_neutron_ingot.json",
+          "src/main/java/net/wzz/more_avaritia/item/CompressedNeutronIngotItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Compressedneutroningotr",
+      "type": "recipe",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressedneutroningotr",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressedneutroningotr.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedPickaxe",
+      "type": "tool",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/CompressedPickaxeItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/compressed_pickaxe.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedAxe",
+      "type": "tool",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_axe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/compressed_axe.json",
+          "src/main/java/net/wzz/more_avaritia/item/CompressedAxeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CompressedSword",
+      "type": "tool",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_sword",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/compressed_sword.json",
+          "src/main/java/net/wzz/more_avaritia/item/CompressedSwordItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CompressedShovel",
+      "type": "tool",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_shovel",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/compressed_shovel.json",
+          "src/main/java/net/wzz/more_avaritia/item/CompressedShovelItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CompressedHoe",
+      "type": "tool",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_hoe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/compressed_hoe.json",
+          "src/main/java/net/wzz/more_avaritia/item/CompressedHoeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "CompressedPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_pickaxe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressed_pickaxe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedAxeRecipe",
+      "type": "recipe",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_axe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressed_axe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedSwordRecipe",
+      "type": "recipe",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressed_sword_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedShovelRecipe",
+      "type": "recipe",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_shovel_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressed_shovel_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedHoeRecipe",
+      "type": "recipe",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_hoe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/compressed_hoe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "NeutronStick",
+      "type": "item",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "neutron_stick",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/neutron_stick.json",
+          "src/main/java/net/wzz/more_avaritia/item/NeutronStickItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Neutron",
+      "type": "recipe",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "neutron",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/neutron.json"
+        ]
+      }
+    },
+    {
+      "name": "NeutronArmor",
+      "type": "armor",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "neutron_armor",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/neutron_armor_chestplate.json",
+          "src/main/java/net/wzz/more_avaritia/item/NeutronArmorItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/neutron_armor_helmet.json",
+          "src/main/resources/assets/more_avaritia/models/item/neutron_armor_boots.json",
+          "src/main/resources/assets/more_avaritia/models/item/neutron_armor_leggings.json"
+        ]
+      }
+    },
+    {
+      "name": "H1",
+      "type": "recipe",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_1",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_1.json"
+        ]
+      }
+    },
+    {
+      "name": "H2",
+      "type": "recipe",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_2.json"
+        ]
+      }
+    },
+    {
+      "name": "H3",
+      "type": "recipe",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_3",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_3.json"
+        ]
+      }
+    },
+    {
+      "name": "H4",
+      "type": "recipe",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_4",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_4.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedInfinityIngot",
+      "type": "item",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_infinity_ingot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/CompressedInfinityIngotItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/compressed_infinity_ingot.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedNeutronBlock",
+      "type": "block",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "compressed_neutron_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/block/compressed_neutron_block.json",
+          "src/main/java/net/wzz/more_avaritia/block/CompressedNeutronBlockBlock.java",
+          "src/main/resources/assets/more_avaritia/models/item/compressed_neutron_block.json",
+          "src/main/resources/assets/more_avaritia/blockstates/compressed_neutron_block.json"
+        ]
+      }
+    },
+    {
+      "name": "H5",
+      "type": "recipe",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_5",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_5.json"
+        ]
+      }
+    },
+    {
+      "name": "H6",
+      "type": "recipe",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_6",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_6.json"
+        ]
+      }
+    },
+    {
+      "name": "CompressedInfinityBlock",
+      "type": "block",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressed_infinity_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/block/CompressedInfinityBlockBlock.java",
+          "src/main/resources/assets/more_avaritia/blockstates/compressed_infinity_block.json",
+          "src/main/resources/assets/more_avaritia/models/block/compressed_infinity_block.json",
+          "src/main/resources/assets/more_avaritia/models/item/compressed_infinity_block.json"
+        ]
+      }
+    },
+    {
+      "name": "H7",
+      "type": "recipe",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "h_7",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_7.json"
+        ]
+      }
+    },
+    {
+      "name": "H8",
+      "type": "recipe",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "h_8",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_8.json"
+        ]
+      }
+    },
+    {
+      "name": "H9",
+      "type": "recipe",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_9",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_9.json"
+        ]
+      }
+    },
+    {
+      "name": "InfinitySword",
+      "type": "tool",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/InfinitySwordItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_sword.json"
+        ]
+      }
+    },
+    {
+      "name": "EndlessEnergy",
+      "type": "item",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "endless_energy",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/EndlessEnergyItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/endless_energy.json"
+        ]
+      }
+    },
+    {
+      "name": "CoalSingularity",
+      "type": "item",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "coal_singularity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/CoalSingularityItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/coal_singularity.json"
+        ]
+      }
+    },
+    {
+      "name": "InfinitySingularity",
+      "type": "item",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_singularity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/InfinitySingularityItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_singularity.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinity_armor_Armor",
+      "type": "armor",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_armor_armor",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/infinity_armor_armor_leggings.json",
+          "src/main/java/net/wzz/more_avaritia/item/Infinity_armor_ArmorItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_armor_armor_helmet.json",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_armor_armor_chestplate.json",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_armor_armor_boots.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinity_armor_ArmorHelmetRecipe",
+      "type": "recipe",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_armor_armor_helmet_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/infinity_armor_armor_helmet_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinity_armor_ArmorChestplateRecipe",
+      "type": "recipe",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_armor_armor_chestplate_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/infinity_armor_armor_chestplate_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinity_armor_ArmorLeggingsRecipe",
+      "type": "recipe",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_armor_armor_leggings_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/infinity_armor_armor_leggings_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinity_armor_ArmorBootsRecipe",
+      "type": "recipe",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_armor_armor_boots_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/infinity_armor_armor_boots_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "H10",
+      "type": "recipe",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "h_10",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_10.json"
+        ]
+      }
+    },
+    {
+      "name": "ChargingCrystalOre",
+      "type": "block",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "charging_crystal_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/block/ChargingCrystalOreBlock.java",
+          "src/main/java/net/wzz/more_avaritia/world/features/ores/ChargingCrystalOreFeature.java",
+          "src/main/resources/assets/more_avaritia/blockstates/charging_crystal_ore.json",
+          "src/main/resources/assets/more_avaritia/models/item/charging_crystal_ore.json",
+          "src/main/resources/assets/more_avaritia/models/block/charging_crystal_ore.json"
+        ]
+      }
+    },
+    {
+      "name": "ChargingCrystal",
+      "type": "item",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "charging_crystal",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/ChargingCrystalItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/charging_crystal.json"
+        ]
+      }
+    },
+    {
+      "name": "InfinityBow",
+      "type": "item",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_bow",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/InfinityBowItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/infinity_bow.json"
+        ]
+      }
+    },
+    {
+      "name": "H12",
+      "type": "recipe",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "h_12",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/h_12.json"
+        ]
+      }
+    },
+    {
+      "name": "Endless",
+      "type": "itemextension",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "endless",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "InfinityApple",
+      "type": "item",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinity_apple",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/infinity_apple.json",
+          "src/main/java/net/wzz/more_avaritia/item/InfinityAppleItem.java"
+        ]
+      }
+    },
+    {
+      "name": "SuperInfinityCatalyst",
+      "type": "item",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "super_infinity_catalyst",
+      "metadata": {
+        "files": [
+          "src/main/java/net/wzz/more_avaritia/item/SuperInfinityCatalystItem.java",
+          "src/main/resources/assets/more_avaritia/models/item/super_infinity_catalyst.json"
+        ]
+      }
+    },
+    {
+      "name": "Infinitytotem",
+      "type": "item",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "infinitytotem",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/infinitytotem.json",
+          "src/main/java/net/wzz/more_avaritia/item/InfinitytotemItem.java"
+        ]
+      }
+    },
+    {
+      "name": "GetLive",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_live",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/advancements/get_live.json"
+        ]
+      }
+    },
+    {
+      "name": "Inf",
+      "type": "recipe",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "inf",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/more_avaritia/recipes/inf.json"
+        ]
+      }
+    },
+    {
+      "name": "BigDiamond",
+      "type": "block",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "big_diamond",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/more_avaritia/models/item/big_diamond.json",
+          "src/main/resources/assets/more_avaritia/models/block/big_diamond.json",
+          "src/main/resources/assets/more_avaritia/blockstates/big_diamond.json",
+          "src/main/java/net/wzz/more_avaritia/block/BigDiamondBlock.java"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.more_avaritia.compressed_axe": "Compressed Neutron Axe",
+      "item.more_avaritia.infinity_singularity": "Infinity Singularity",
+      "block.more_avaritia.charging_crystal_ore": "Charging Crystal Ore",
+      "advancements.get_live.title": "change life !",
+      "item.more_avaritia.infinity_armor_armor_leggings": "Infinity Leggings",
+      "bow.text": "§8§oToo many arrows, machine gun!",
+      "item.more_avaritia.neutron_stick": "Neutron Stick",
+      "item.more_avaritia.charging_crystal": "Charging Crystal",
+      "item.more_avaritia.neutron_armor_leggings": "Neutron Armor Pants",
+      "nodie.message": "Non-dead organisms detected forced erasure",
+      "item.more_avaritia.neutron_armor_helmet": "Neutron Armor Helmet",
+      "item.avaritia.infinity_boots": "Infinity Boots",
+      "item.more_avaritia.infinity_apple": "Infinity Apple",
+      "item.more_avaritia.infinitytotem": "Infinity Totem",
+      "item.more_avaritia.infinity_armor_armor_boots": "Infinity Boots",
+      "item.avaritia.infinity_bow": "Longbow of the Heavens",
+      "item.avaritia.infinity_shovel": "Planet Eater",
+      "item.infinity_sword.text2": "With the ambition of the whole world, the princes and the people will be shocked",
+      "item.more_avaritia.compressed_sword": "Compressed Neutron Sword",
+      "tem.avaritia.infinity_sword": "Sword of the Cosmos",
+      "block.more_avaritia.compressed_infinity_block": "Compressed Infinity Block",
+      "block.more_avaritia.big_diamond": "Super Diamond Block",
+      "compressed_neutron_ingot.text.1": "§7§oThe heart of a compact galaxy, reduced to a compressed spindle.",
+      "item.infinity_sword.text1": "§8§oInfinity Sword is reborn!",
+      "item.more_avaritia.endless_energy": "Endless Energy",
+      "item.more_avaritia.compressed_shovel": "Compressed Neutron Shovel",
+      "item.more_avaritia.infinity_bow": "Infinity Bow §eChange",
+      "item.more_avaritia.compressed_hoe": "Compressed Neutron Hoe",
+      "item.avaritia.infinity_catalyst": "Infinity Catalyst",
+      "item.more_avaritia.infinity_sword": "§eSword of Universal Domination§f·§eAlter",
+      "pickaxe.message": "§8§oTriple drop!",
+      "item.more_avaritia.neutron_armor_boots": "Neutron Armor Boots",
+      "item.more_avaritia.infinity_armor_armor_helmet": "Infinity Helmet",
+      "item.avaritia.infinity_ingot": "Infinity Ingot",
+      "item.more_avaritia.infinity_armor_armor_chestplate": "Infinity Chestplate",
+      "item.more_avaritia.super_infinity_catalyst": "Super Infinity Catalyst",
+      "item.more_avaritia.neutron_armor_chestplate": "Neutron Armor Chestplate",
+      "infinity_singularity.text": "§7§oContains all the power of the singularity",
+      "block.more_avaritia.compressed_neutron_block": "Compressed Neutron Block",
+      "endless_energy.text": "§7§oWho knows how long it will burn",
+      "advancements.get_live.descr": "利用无尽图腾复活一次",
+      "item.more_avaritia.compressed_infinity_ingot": "§eCompressed Infinity Ingot",
+      "item.more_avaritia.compressed_pickaxe": "Compressed Neutron Pickaxe",
+      "item.more_avaritia.compressed_neutron_ingot": "Compressed Neutron Ingot",
+      "item.more_avaritia.coal_singularity": "Coal Singularity"
+    },
+    "zh_cn": {
+      "item.more_avaritia.compressed_axe": "中子态素斧",
+      "item.more_avaritia.infinity_singularity": "无尽奇点",
+      "block.more_avaritia.charging_crystal_ore": "充能水晶矿",
+      "advancements.get_live.title": "掌握生死！",
+      "item.more_avaritia.infinity_armor_armor_leggings": "无尽护腿",
+      "bow.text": "§8§o超多箭矢，机关枪！",
+      "item.more_avaritia.neutron_stick": "中子态素棒",
+      "item.more_avaritia.charging_crystal": "充能水晶",
+      "item.more_avaritia.neutron_armor_leggings": "中子态素护腿",
+      "nodie.message": "检测到生物未死亡已强制抹除",
+      "item.more_avaritia.neutron_armor_helmet": "中子态素头盔",
+      "item.avaritia.infinity_boots": "无尽鞋子",
+      "item.more_avaritia.infinity_apple": "无尽苹果",
+      "item.more_avaritia.infinitytotem": "无尽图腾",
+      "item.more_avaritia.infinity_armor_armor_boots": "无尽鞋子",
+      "item.avaritia.infinity_bow": "天堂陨落长弓",
+      "item.avaritia.infinity_shovel": "星球吞噬之铲",
+      "item.infinity_sword.text2": "上乘寰宇之志下震诸侯万民",
+      "item.more_avaritia.compressed_sword": "中子态素剑",
+      "tem.avaritia.infinity_sword": "寰宇支配之剑",
+      "block.more_avaritia.compressed_infinity_block": "坍塌无尽块",
+      "block.more_avaritia.big_diamond": "超质量钻石块",
+      "compressed_neutron_ingot.text.1": "§7§o致密星系之心，化为一压缩锭。",
+      "item.infinity_sword.text1": "§8§o寰宇支配之剑获得了新生！",
+      "item.more_avaritia.endless_energy": "无尽能源",
+      "item.more_avaritia.compressed_shovel": "中子态素铲",
+      "item.more_avaritia.infinity_bow": "天堂陨落长弓·§e改",
+      "item.more_avaritia.compressed_hoe": "中子态素锄",
+      "item.avaritia.infinity_catalyst": "无尽催化剂",
+      "item.more_avaritia.infinity_sword": "§e寰宇支配之剑§f·§e改",
+      "pickaxe.message": "§8§o三倍掉落！",
+      "item.more_avaritia.neutron_armor_boots": "中子态素鞋子",
+      "item.more_avaritia.infinity_armor_armor_helmet": "无尽头盔",
+      "item.avaritia.infinity_ingot": "无尽锭",
+      "item.more_avaritia.infinity_armor_armor_chestplate": "无尽胸甲",
+      "item.more_avaritia.super_infinity_catalyst": "无尽催化剂-终极",
+      "item.more_avaritia.neutron_armor_chestplate": "中子态素胸甲",
+      "infinity_singularity.text": "§7§o蕴含所有奇点的力量",
+      "block.more_avaritia.compressed_neutron_block": "压缩中子态素块",
+      "endless_energy.text": "§7§o谁知道它能烧多久呢",
+      "advancements.get_live.descr": "利用无尽图腾复活一次",
+      "item.more_avaritia.compressed_infinity_ingot": "§e坍塌无尽锭",
+      "item.more_avaritia.compressed_pickaxe": "中子态素镐",
+      "item.more_avaritia.compressed_neutron_ingot": "压缩中子态素锭",
+      "item.more_avaritia.coal_singularity": "煤炭奇点"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "more_avaritia",
+    "modName": "More_Avaritia",
+    "version": "1.0.0",
+    "author": "Administrator, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.18.2",
+    "modElementsPackage": "net.wzz.more_avaritia",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202300336712
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "more_avaritia:compressed_infinity_ingot"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:compressed_infinity_block",
+    "count": 1
+  }
+}

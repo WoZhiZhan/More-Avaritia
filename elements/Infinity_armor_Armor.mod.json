@@ -1,0 +1,70 @@
+{
+  "_fv": 47,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "helmet",
+    "enableBody": true,
+    "textureBody": "chestplate",
+    "enableLeggings": true,
+    "textureLeggings": "leggings",
+    "enableBoots": true,
+    "textureBoots": "boots",
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "armorTextureFile": "infinity__",
+    "helmetName": "Infinity Helmet",
+    "bodyName": "Infinity Chestplate",
+    "leggingsName": "Infinity Leggings",
+    "bootsName": "Infinity Boots",
+    "helmetSpecialInfo": [],
+    "bodySpecialInfo": [],
+    "leggingsSpecialInfo": [],
+    "bootsSpecialInfo": [],
+    "helmetModelName": "Default",
+    "helmetModelPart": "Helmet",
+    "helmetModelTexture": "From armor",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "armsModelPartL": "Arms L",
+    "armsModelPartR": "Arms R",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "helmetItemRenderType": 0,
+    "helmetItemCustomModelName": "Normal",
+    "bodyItemRenderType": 0,
+    "bodyItemCustomModelName": "Normal",
+    "leggingsItemRenderType": 0,
+    "leggingsItemCustomModelName": "Normal",
+    "bootsItemRenderType": 0,
+    "bootsItemCustomModelName": "Normal",
+    "helmetImmuneToFire": true,
+    "bodyImmuneToFire": true,
+    "leggingsImmuneToFire": true,
+    "bootsImmuneToFire": true,
+    "maxDamage": 0,
+    "damageValueHelmet": 1024,
+    "damageValueBody": 1024,
+    "damageValueLeggings": 1024,
+    "damageValueBoots": 1024,
+    "enchantability": 100,
+    "toughness": 10.0,
+    "knockbackResistance": 5.0,
+    "equipSound": {
+      "value": ""
+    },
+    "repairItems": [
+      {
+        "value": "Blocks.LAPIS_BLOCK"
+      }
+    ]
+  }
+}

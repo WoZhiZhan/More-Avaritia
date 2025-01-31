@@ -1,0 +1,25 @@
+{
+	"type": "avaritia:extreme_shaped",
+	"result": {
+		"item": "more_avaritia:charging_crystal"
+	},
+	"pattern": [
+		"NNNNNNNNN",
+		"N       N",
+		"N       N",
+		"N       N",
+		"N   A   N",
+		"N       N",
+		"N       N",
+		"N       N",
+		"NNNNNNNNN"
+	],
+	"key": {
+		"A": {
+			"item": "diamond"
+		},
+		"N": {
+			"item": "more_avaritia:infinity_singularity"
+		}
+	}
+}

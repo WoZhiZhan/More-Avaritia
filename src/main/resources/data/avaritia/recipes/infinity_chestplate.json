@@ -1,0 +1,28 @@
+{
+	"type": "avaritia:extreme_shaped",
+	"result": {
+		"item": "more_avaritia:super_infinity_chest"
+	},
+	"pattern": [
+		" NN   NN ",
+		"NNN   NNN",
+		"NNN   NNN",
+		" NIIIIIN ",
+		" NIIXIIN ",
+		" NIIIIIN ",
+		" NIIIIIN ",
+		" NIIIIIN ",
+		"  NNNNN  "
+	],
+	"key": {
+		"I": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"X": {
+			"item": "avaritia:infinity_chestplate"
+		},
+		"N": {
+			"item": "more_avaritia:compressed_neutron_ingot"
+		}
+	}
+}

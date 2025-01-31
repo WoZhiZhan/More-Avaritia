@@ -1,0 +1,31 @@
+{
+  "_fv": 47,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Spade",
+    "renderType": 0,
+    "texture": "neutron_shovel",
+    "customModelName": "Normal",
+    "name": "Compressed Neutron Shovel",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "harvestLevel": 30,
+    "efficiency": 30.0,
+    "attackSpeed": 1.2,
+    "enchantability": 100,
+    "damageVsEntity": 5.0,
+    "usageCount": 6000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:CompressedNeutronIngot"
+      }
+    ],
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

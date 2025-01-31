@@ -1,0 +1,29 @@
+{
+  "_fv": 47,
+  "_type": "tool",
+  "definition": {
+    "toolType": "MultiTool",
+    "renderType": 0,
+    "texture": "super_infinity_sword",
+    "customModelName": "Normal",
+    "name": "Final Fantasy: Sword of Universal Domination",
+    "specialInfo": [
+      "1"
+    ],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "harvestLevel": 1000,
+    "efficiency": 1000.0,
+    "attackSpeed": 1.6,
+    "enchantability": 1000,
+    "damageVsEntity": 114.0,
+    "usageCount": 0,
+    "blocksAffected": [],
+    "hasGlow": true,
+    "repairItems": [],
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

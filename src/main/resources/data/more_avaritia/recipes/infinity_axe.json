@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "more_avaritia:charging_crystal"
+    },
+    {
+      "item": "avaritia:infinity_axe"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:infinity_axe",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "more_avaritia:items/neutron_bow/bow_pulling_2"
+  }
+}

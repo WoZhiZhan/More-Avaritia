@@ -1,0 +1,28 @@
+{
+  "type": "avaritia:extreme_shaped",
+  "result": {
+    "item": "more_avaritia:infinity_shovel"
+  },
+  "pattern": [
+    "      III",
+    "     IIXI",
+    "      III",
+    "     N I ",
+    "    N    ",
+    "   N     ",
+    "  N      ",
+    " N       ",
+    "N        "
+  ],
+  "key": {
+    "N": {
+      "item": "avaritia:endest_pearl"
+    },
+    "I": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "X": {
+      "item": "avaritia:infinity_shovel"
+    }
+  }
+}

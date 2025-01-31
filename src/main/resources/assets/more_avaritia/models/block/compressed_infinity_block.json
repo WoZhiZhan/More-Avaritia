@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "more_avaritia:blocks/infinity",
+    "up": "more_avaritia:blocks/infinity",
+    "north": "more_avaritia:blocks/infinity",
+    "east": "more_avaritia:blocks/infinity",
+    "south": "more_avaritia:blocks/infinity",
+    "west": "more_avaritia:blocks/infinity",
+    "particle": "more_avaritia:blocks/infinity"
+  }
+}

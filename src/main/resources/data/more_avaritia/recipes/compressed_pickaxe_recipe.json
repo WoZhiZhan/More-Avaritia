@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "1": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "2": {
+      "item": "avaritia:neutronium_ingot"
+    },
+    "4": {
+      "item": "more_avaritia:neutron_stick"
+    },
+    "7": {
+      "item": "more_avaritia:neutron_stick"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:compressed_pickaxe",
+    "count": 1
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "more_avaritia:halo_noise",
+    "layer1": "more_avaritia:items/resource_neutronium_ingot_clean",
+    "halo": "avaritia:item/halo"
+  },
+  "loader": "avaritia:halo",
+  "halo": {
+    "texture": "#halo",
+    "color": -16777216,
+    "size": 10,
+    "pulse": true
+  }
+}

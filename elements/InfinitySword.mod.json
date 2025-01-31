@@ -1,0 +1,29 @@
+{
+  "_fv": 47,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Sword",
+    "renderType": 0,
+    "texture": "super_infinity_sword",
+    "customModelName": "Normal",
+    "name": "§eSword of Universal Domination§f·§eAlter",
+    "specialInfo": [
+      "1"
+    ],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "harvestLevel": 100,
+    "efficiency": 100.0,
+    "attackSpeed": 1.6,
+    "enchantability": 100,
+    "damageVsEntity": 4.0,
+    "usageCount": 0,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

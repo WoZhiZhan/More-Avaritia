@@ -1,0 +1,22 @@
+{
+  "type": "avaritia:extreme_shaped",
+  "result": {
+    "item": "more_avaritia:compressed_infinity_ingot"
+  },
+  "pattern": [
+    "EEEEEEEEE",
+    "EEEEEEEEE",
+    "EEEEEEEEE",
+    "EEEEEEEEE",
+    "EEEEEEEEE",
+    "         ",
+    "         ",
+    "         ",
+    "         "
+  ],
+  "key": {
+    "E": {
+      "item": "avaritia:infinity_ingot"
+    }
+  }
+}

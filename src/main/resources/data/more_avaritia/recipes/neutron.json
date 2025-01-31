@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "avaritia:neutronium_ingot"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:neutron_stick",
+    "count": 1
+  }
+}
