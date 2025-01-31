@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "more_avaritia:blocks/neutronium",
+    "up": "more_avaritia:blocks/neutronium",
+    "north": "more_avaritia:blocks/neutronium",
+    "east": "more_avaritia:blocks/neutronium",
+    "south": "more_avaritia:blocks/neutronium",
+    "west": "more_avaritia:blocks/neutronium",
+    "particle": "more_avaritia:blocks/neutronium"
+  }
+}

@@ -1,0 +1,28 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:super_infinity_boots"
+	},
+	"pattern": [
+		"IIIIIIIII",
+		"INNNNNNNI",
+		"IN     NI",
+		"IN     NI",
+		"IN  A  NI",
+		"IN     NI",
+		"IN     NI",
+		"INNNNNNNI",
+		"IIIIIIIII"
+	],
+	"key": {
+		"A": {
+			"item": "avaritia:infinity_boots"
+		},
+		"I": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"N": {
+			"item": "more_avaritia:compressed_neutron_ingot"
+		}
+	}
+}

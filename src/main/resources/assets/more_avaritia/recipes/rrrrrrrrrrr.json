@@ -1,0 +1,13 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "more_avaritia:compressed_neutron_block"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:compressed_neutron_ingot",
+    "count": 9
+  }
+}

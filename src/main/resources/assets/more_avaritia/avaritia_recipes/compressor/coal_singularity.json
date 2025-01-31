@@ -1,0 +1,14 @@
+{
+	"type": "avaritia:compressor",
+	"result": {
+		"item": "more_avaritia:coal_singularity",
+		"count": 1
+	},
+	"cost": 800,
+	"ingredients": [
+		{
+			"item": "minecraft:coal",
+			"data": 0
+		}
+	]
+}

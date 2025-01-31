@@ -1,0 +1,20 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:compressed_infinity_ingot"
+	},
+	"pattern": [
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN"
+	],
+	"key": {
+		"N": {
+			"item": "avaritia:resource",
+			"data": 6,
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,46 @@
+{
+  "_fv": 18,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "Blocks.AIR"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      },
+      {
+        "value": "CUSTOM:CompressnedInfinityBlock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:InfinityLuckBlock"
+    },
+    "name": "vvvvvvv",
+    "namespace": "mod"
+  }
+}

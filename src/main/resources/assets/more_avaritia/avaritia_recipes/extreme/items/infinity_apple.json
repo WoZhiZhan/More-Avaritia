@@ -1,0 +1,29 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:infinity_apple",
+		"data": 0,
+		"count": 1
+	},
+	"pattern": [
+		"IIIIIIIII",
+		"I       I",
+		"I       I",
+		"I       I",
+		"I   A   I",
+		"I       I",
+		"I       I",
+		"I       I",
+		"IIIIIIIII"
+	],
+	"key": {
+		"A": {
+			"item": "minecraft:apple"
+		},
+		"I": {
+			"item": "avaritia:resource",
+			"data": 4,
+			"count": 1
+		}
+	}
+}

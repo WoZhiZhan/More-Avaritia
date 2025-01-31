@@ -1,0 +1,42 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:infinity_bow",
+		"data": 0,
+		"count": 1
+	},
+	"pattern": [
+		"   IB    ",
+		"  I W    ",
+		" I  W    ",
+		"I   W    ",
+		"X   A    ",
+		"I   W    ",
+		" I  W    ",
+		"  I W    ",
+		"   IB    "
+	],
+	"key": {
+		"A": {
+			"item": "avaritia:infinity_bow"
+		},
+		"B": {
+			"item": "avaritia:block_resource",
+			"data": 1,
+			"count": 1
+		},
+		"I": {
+			"item": "avaritia:resource",
+			"data": 6,
+			"count": 1
+		},
+		"X": {
+			"item": "more_avaritia:charging_crystal"
+		},
+		"W": {
+			"item": "avaritia:resource",
+			"data": 1,
+			"count": 1
+		}
+	}
+}

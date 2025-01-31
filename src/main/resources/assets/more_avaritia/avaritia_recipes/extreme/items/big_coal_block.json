@@ -1,0 +1,22 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:big_coal_block"
+	},
+	"pattern": [
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN"
+	],
+	"key": {
+		"N": {
+			"item": "more_avaritia:coal_singularity"
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:infinity_sword",
+		"count": 1
+	},
+	"pattern": [
+		"       II",
+		"      III",
+		"     III ",
+		"    III  ",
+		" C III   ",
+		"  CII    ",
+		"  NC     ",
+		" N  C    ",
+		"X        "
+	],
+	"key": {
+		"I": {
+			"item": "avaritia:resource",
+			"data": 6,
+			"count": 1
+		},
+		"X": {
+			"item": "avaritia:infinity_sword"
+		},
+		"C": {
+			"item": "more_avaritia:endless_energy"
+		},
+		"N": {
+			"item": "more_avaritia:infinity_singularity"
+		}
+	}
+}

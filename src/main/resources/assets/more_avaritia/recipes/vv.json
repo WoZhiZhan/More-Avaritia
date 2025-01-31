@@ -1,0 +1,16 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "more_avaritia:charging_crystal"
+    },
+    {
+      "item": "avaritia:infinity_hoe"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:infinity_hoe",
+    "count": 1
+  }
+}

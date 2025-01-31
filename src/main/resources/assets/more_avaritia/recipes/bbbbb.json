@@ -1,0 +1,16 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "more_avaritia:infinity_singularity"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:charging_crystal",
+    "count": 1
+  }
+}

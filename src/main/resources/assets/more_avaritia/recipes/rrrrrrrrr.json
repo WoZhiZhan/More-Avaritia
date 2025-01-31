@@ -1,0 +1,18 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:neutron_stick",
+    "count": 1
+  }
+}

@@ -1,0 +1,779 @@
+{
+  "id_map": {},
+  "mod_elements": [
+    {
+      "name": "InfinitySingularity",
+      "type": "item",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_singularity"
+    },
+    {
+      "name": "CompressedNeutronIngot",
+      "type": "item",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compressed_neutron_ingot"
+    },
+    {
+      "name": "EndlessEnergy",
+      "type": "item",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "endless_energy"
+    },
+    {
+      "name": "InfinityEnergy",
+      "type": "fuel",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "infinity_energy"
+    },
+    {
+      "name": "ChargingCrystal",
+      "type": "item",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "charging_crystal"
+    },
+    {
+      "name": "NeutronSword",
+      "type": "tool",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_sword"
+    },
+    {
+      "name": "NeutronAxe",
+      "type": "tool",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_axe"
+    },
+    {
+      "name": "NeutronPick",
+      "type": "tool",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_pick"
+    },
+    {
+      "name": "NeutronShovel",
+      "type": "tool",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_shovel"
+    },
+    {
+      "name": "NeutronHoe",
+      "type": "tool",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_hoe"
+    },
+    {
+      "name": "NeutronArmor",
+      "type": "armor",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_armor",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "CompressNeutronSword",
+      "type": "tool",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compress_neutron_sword"
+    },
+    {
+      "name": "InfinitySword",
+      "type": "item",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_sword"
+    },
+    {
+      "name": "InfinityPickaxe",
+      "type": "item",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_pickaxe"
+    },
+    {
+      "name": "InfinityShovel",
+      "type": "item",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_shovel"
+    },
+    {
+      "name": "InfinityHoe",
+      "type": "item",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_hoe"
+    },
+    {
+      "name": "InfinityAxe",
+      "type": "item",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_axe"
+    },
+    {
+      "name": "InfinityBow",
+      "type": "item",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_bow"
+    },
+    {
+      "name": "CompressedInfinityIngot",
+      "type": "item",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compressed_infinity_ingot"
+    },
+    {
+      "name": "CompressedNeutronBlock",
+      "type": "block",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compressed_neutron_block"
+    },
+    {
+      "name": "CompressnedInfinityBlock",
+      "type": "block",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compressned_infinity_block"
+    },
+    {
+      "name": "InfinityArmor",
+      "type": "armor",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_armor",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "BoomEndPear",
+      "type": "item",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "boom_end_pear"
+    },
+    {
+      "name": "Gyroscope",
+      "type": "item",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "gyroscope"
+    },
+    {
+      "name": "InfinityLuckBlock",
+      "type": "block",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_luck_block"
+    },
+    {
+      "name": "R",
+      "type": "recipe",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "r"
+    },
+    {
+      "name": "Rr",
+      "type": "recipe",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rr"
+    },
+    {
+      "name": "Rrr",
+      "type": "recipe",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rrr"
+    },
+    {
+      "name": "NeutronStick",
+      "type": "item",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "neutron_stick"
+    },
+    {
+      "name": "Rrrr",
+      "type": "recipe",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrr"
+    },
+    {
+      "name": "Rrrrr",
+      "type": "recipe",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrr"
+    },
+    {
+      "name": "Rrrrrr",
+      "type": "recipe",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrrr"
+    },
+    {
+      "name": "Rrrrrrr",
+      "type": "recipe",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrrrr"
+    },
+    {
+      "name": "Rrrrrrrr",
+      "type": "recipe",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrrrrr"
+    },
+    {
+      "name": "Rrrrrrrrr",
+      "type": "recipe",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrrrrrr"
+    },
+    {
+      "name": "Rrrrrrrrrr",
+      "type": "recipe",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "rrrrrrrrrr"
+    },
+    {
+      "name": "Rrrrrrrrrrr",
+      "type": "recipe",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rrrrrrrrrrr"
+    },
+    {
+      "name": "Rrrrrrrrrrrr",
+      "type": "recipe",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rrrrrrrrrrrr"
+    },
+    {
+      "name": "A",
+      "type": "recipe",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "a"
+    },
+    {
+      "name": "Aa",
+      "type": "recipe",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aa"
+    },
+    {
+      "name": "Aaa",
+      "type": "recipe",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaa"
+    },
+    {
+      "name": "Aaaa",
+      "type": "recipe",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaaa"
+    },
+    {
+      "name": "Aaaaa",
+      "type": "recipe",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaaaa"
+    },
+    {
+      "name": "Aaaaaa",
+      "type": "recipe",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaaaaa"
+    },
+    {
+      "name": "Aaaaaaa",
+      "type": "recipe",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaaaaaa"
+    },
+    {
+      "name": "Aaaaaaaa",
+      "type": "recipe",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "aaaaaaaa"
+    },
+    {
+      "name": "B",
+      "type": "recipe",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "b"
+    },
+    {
+      "name": "Bb",
+      "type": "recipe",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bb"
+    },
+    {
+      "name": "Bbb",
+      "type": "recipe",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bbb"
+    },
+    {
+      "name": "Bbbbb",
+      "type": "recipe",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "bbbbb"
+    },
+    {
+      "name": "Bbbbbb",
+      "type": "recipe",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "bbbbbb"
+    },
+    {
+      "name": "V",
+      "type": "recipe",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "v"
+    },
+    {
+      "name": "Vv",
+      "type": "recipe",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "vv"
+    },
+    {
+      "name": "Vvv",
+      "type": "recipe",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "vvv"
+    },
+    {
+      "name": "Vvvvv",
+      "type": "recipe",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "vvvvv"
+    },
+    {
+      "name": "Vvvvvv",
+      "type": "recipe",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "vvvvvv"
+    },
+    {
+      "name": "Vvvv",
+      "type": "recipe",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "vvvv"
+    },
+    {
+      "name": "Vvvvvvv",
+      "type": "recipe",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "vvvvvvv"
+    },
+    {
+      "name": "CompressInfinityCatalyst",
+      "type": "item",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "compress_infinity_catalyst"
+    },
+    {
+      "name": "BigDiamondBlock",
+      "type": "block",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_diamond_block"
+    },
+    {
+      "name": "BigIronBlock",
+      "type": "block",
+      "sortid": 63,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_iron_block"
+    },
+    {
+      "name": "BigGoldBlock",
+      "type": "block",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_gold_block"
+    },
+    {
+      "name": "BigEmeraldBlock",
+      "type": "block",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_emerald_block"
+    },
+    {
+      "name": "BigRedStoneBlock",
+      "type": "block",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_red_stone_block"
+    },
+    {
+      "name": "BigLapisBlock",
+      "type": "block",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_lapis_block"
+    },
+    {
+      "name": "BigCoalBlock",
+      "type": "block",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_coal_block"
+    },
+    {
+      "name": "BigOre",
+      "type": "tab",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_ore"
+    },
+    {
+      "name": "SuperInfinitySword",
+      "type": "item",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "super_infinity_sword"
+    },
+    {
+      "name": "CoalSingularity",
+      "type": "item",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "coal_singularity"
+    },
+    {
+      "name": "InfinityApple",
+      "type": "food",
+      "sortid": 72,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "infinity_apple"
+    },
+    {
+      "name": "BigQuartzBlock",
+      "type": "block",
+      "sortid": 73,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "big_quartz_block"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.infinity_armorhelmet.name": "无尽头盔",
+      "item.super_infinity_sword.name": "最终寰宇支配之剑",
+      "tile.compressed_neutron_block.name": "压缩中子态素块",
+      "item.neutron_shovel.name": "中子铲",
+      "tile.big_iron_block.name": "压缩铁块",
+      "item.endless_energy.name": "无尽能源",
+      "item.coal_singularity.name": "煤炭奇点",
+      "item.infinity_sword.name": "§e寰宇支配之剑§f·§e改",
+      "item.infinity_shovel.name": "星球吞噬之铲·§e改",
+      "tile.big_red_stone_block.name": "压缩红色块",
+      "item.gyroscope.name": "陀螺仪",
+      "tile.big_coal_block.name": "压缩煤炭块",
+      "item.neutron_armorlegs.name": "中子护腿",
+      "item.compress_infinity_catalyst.name": "压缩无尽催化剂",
+      "item.neutron_axe.name": "中子斧",
+      "tile.compressned_infinity_block.name": "压缩无尽之块",
+      "tile.big_emerald_block.name": "压缩绿宝石块",
+      "item.neutron_armorboots.name": "中子靴子",
+      "item.infinity_hoe.name": "地蕴复生之锄·§e改",
+      "item.neutron_armorbody.name": "中子胸甲",
+      "item.infinity_apple.name": "无尽苹果",
+      "item.infinity_armorboots.name": "无尽靴子",
+      "tile.big_quartz_block.name": "压缩石英块",
+      "item.infinity_singularity.name": "无尽奇点",
+      "tile.infinity_luck_block.name": "无尽贪婪幸运方块",
+      "item.neutron_sword.name": "中子剑",
+      "tile.big_diamond_block.name": "压缩钻石块",
+      "tile.big_gold_block.name": "压缩金块",
+      "item.infinity_bow.name": "天堂陨落长弓·§e改",
+      "item.compress_neutron_sword.name": "压缩中子剑",
+      "item.compressed_infinity_ingot.name": "压缩无尽之锭",
+      "s": "",
+      "item.infinity_armorlegs.name": "无尽护腿",
+      "en_us": "",
+      "item.compressed_neutron_ingot.name": "压缩中子锭",
+      "item.neutron_armorhelmet.name": "中子头盔",
+      "item.neutron_pick.name": "中子镐",
+      "item.neutron_hoe.name": "中子锄",
+      "item.charging_crystal.name": "充能水晶",
+      "item.infinity_pickaxe.name": "世界崩解之镐·§e改",
+      "item.infinity_armorbody.name": "无尽胸甲",
+      "item.boom_end_pear.name": "自爆终望珍珠",
+      "item.infinity_axe.name": "自然荒芜之斧·§e改",
+      "tile.big_lapis_block.name": "压缩青金石块",
+      "itemGroup.tabbig_ore": "巨型矿",
+      "item.neutron_stick.name": "中子态素棒"
+    },
+    "zh_cn": {
+      "item.infinity_armorhelmet.name": "无尽头盔",
+      "item.super_infinity_sword.name": "最终寰宇支配之剑",
+      "tile.compressed_neutron_block.name": "压缩中子态素块",
+      "item.neutron_shovel.name": "中子铲",
+      "tile.big_iron_block.name": "压缩铁块",
+      "item.endless_energy.name": "无尽能源",
+      "item.coal_singularity.name": "煤炭奇点",
+      "item.infinity_sword.name": "§e寰宇支配之剑§f·§e改",
+      "item.infinity_shovel.name": "星球吞噬之铲·§e改",
+      "tile.big_red_stone_block.name": "压缩红色块",
+      "item.gyroscope.name": "陀螺仪",
+      "tile.big_coal_block.name": "压缩煤炭块",
+      "item.neutron_armorlegs.name": "中子护腿",
+      "item.compress_infinity_catalyst.name": "压缩无尽催化剂",
+      "item.neutron_axe.name": "中子斧",
+      "tile.compressned_infinity_block.name": "压缩无尽之块",
+      "tile.big_emerald_block.name": "压缩绿宝石块",
+      "item.neutron_armorboots.name": "中子靴子",
+      "item.infinity_hoe.name": "地蕴复生之锄·§e改",
+      "item.neutron_armorbody.name": "中子胸甲",
+      "item.infinity_apple.name": "无尽苹果",
+      "item.infinity_armorboots.name": "无尽靴子",
+      "tile.big_quartz_block.name": "压缩石英块",
+      "item.infinity_singularity.name": "无尽奇点",
+      "tile.infinity_luck_block.name": "无尽贪婪幸运方块",
+      "item.neutron_sword.name": "中子剑",
+      "tile.big_diamond_block.name": "压缩钻石块",
+      "tile.big_gold_block.name": "压缩金块",
+      "item.infinity_bow.name": "天堂陨落长弓·§e改",
+      "item.compress_neutron_sword.name": "压缩中子剑",
+      "item.compressed_infinity_ingot.name": "压缩无尽之锭",
+      "s": "",
+      "item.infinity_armorlegs.name": "无尽护腿",
+      "en_us": "",
+      "item.compressed_neutron_ingot.name": "压缩中子锭",
+      "item.neutron_armorhelmet.name": "中子头盔",
+      "item.neutron_pick.name": "中子镐",
+      "item.neutron_hoe.name": "中子锄",
+      "item.charging_crystal.name": "充能水晶",
+      "item.infinity_pickaxe.name": "世界崩解之镐·§e改",
+      "item.infinity_armorbody.name": "无尽胸甲",
+      "item.boom_end_pear.name": "自爆终望珍珠",
+      "item.infinity_axe.name": "自然荒芜之斧·§e改",
+      "tile.big_lapis_block.name": "压缩青金石块",
+      "itemGroup.tabbig_ore": "巨型矿",
+      "item.neutron_stick.name": "中子态素棒"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "more_avaritia",
+    "modName": "more_avaritia",
+    "version": "1.0",
+    "author": "wzz",
+    "websiteURL": "https://wzz.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.12.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.wzz.more_avaritia",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202100118117
+}

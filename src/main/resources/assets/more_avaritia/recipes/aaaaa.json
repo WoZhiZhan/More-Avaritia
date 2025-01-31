@@ -1,0 +1,39 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "1": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "2": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "3": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "5": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_armorhelmet",
+    "count": 1
+  }
+}

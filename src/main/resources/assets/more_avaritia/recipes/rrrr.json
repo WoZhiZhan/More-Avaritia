@@ -1,0 +1,36 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "1": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "2": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "4": {
+      "item": "more_avaritia:neutron_stick"
+    },
+    "7": {
+      "item": "more_avaritia:neutron_stick"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:neutron_pick",
+    "count": 1
+  }
+}

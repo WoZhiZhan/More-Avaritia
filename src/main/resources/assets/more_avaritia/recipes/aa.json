@@ -1,0 +1,50 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "1": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "2": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "3": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "5": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "6": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "8": {
+          "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    }
+  },
+  "result": {
+    "item": "more_avaritia:neutron_armorlegs",
+    "count": 1
+  }
+}

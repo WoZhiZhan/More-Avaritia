@@ -1,0 +1,35 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:super_infinity_sword",
+		"count": 1
+	},
+	"pattern": [
+		"       II",
+		"      III",
+		"     III ",
+		"    III  ",
+		" C III   ",
+		"AACII    ",
+		"AANC     ",
+		"ANAAC    ",
+		"XAAA     "
+	],
+	"key": {
+		"I": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"X": {
+			"item": "more_avaritia:infinity_sword"
+		},
+		"C": {
+			"item": "more_avaritia:compress_infinity_catalyst"
+		},
+		"N": {
+			"item": "more_avaritia:infinity_singularity"
+		},
+		"A": {
+			"item": "more_avaritia:compressed_neutron_ingot"
+		}
+	}
+}

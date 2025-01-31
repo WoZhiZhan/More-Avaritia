@@ -1,0 +1,23 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "010",
+    "000"
+  ],
+  "key": {
+    "0": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "1": {
+        "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_totem",
+    "count": 1
+  }
+}

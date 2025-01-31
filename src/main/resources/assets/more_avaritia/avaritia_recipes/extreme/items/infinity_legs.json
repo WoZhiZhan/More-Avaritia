@@ -1,0 +1,31 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:super_infinity_pants"
+	},
+	"pattern": [
+		"NNNNNNNNN",
+		"NIIICIIIN",
+		"NINNXNNIN",
+		"NIN   NIN",
+		"NIN   NIN",
+		"NIN   NIN",
+		"NIN   NIN",
+		"NIN   NIN",
+		"NNN   NNN"
+	],
+	"key": {
+		"I": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"X": {
+			"item": "more_avaritia:compress_infinity_catalyst"
+		},
+		"C": {
+			"item": "avaritia:infinity_pants"
+		},
+		"N": {
+			"item": "more_avaritia:compressed_neutron_ingot"
+		}
+	}
+}

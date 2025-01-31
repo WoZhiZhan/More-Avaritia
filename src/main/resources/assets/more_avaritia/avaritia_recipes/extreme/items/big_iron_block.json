@@ -1,0 +1,23 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:big_iron_block"
+	},
+	"pattern": [
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN"
+	],
+	"key": {
+		"N": {
+			"item": "avaritia:singularity",
+			"data": 0
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "1": {
+      "item": "more_avaritia:neutron_stick"
+    },
+    "2": {
+      "item": "more_avaritia:neutron_stick"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:neutron_shovel",
+    "count": 1
+  }
+}

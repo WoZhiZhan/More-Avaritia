@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "more_avaritia:blocks/lucky_block_avaritia",
+    "up": "more_avaritia:blocks/lucky_block_avaritia",
+    "north": "more_avaritia:blocks/lucky_block_avaritia",
+    "east": "more_avaritia:blocks/lucky_block_avaritia",
+    "south": "more_avaritia:blocks/lucky_block_avaritia",
+    "west": "more_avaritia:blocks/lucky_block_avaritia",
+    "particle": "more_avaritia:blocks/lucky_block_avaritia"
+  }
+}

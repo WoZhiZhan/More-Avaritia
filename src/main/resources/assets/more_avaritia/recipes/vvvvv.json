@@ -1,0 +1,47 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "1": {
+      "item": "minecraft:emerald"
+    },
+    "2": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "3": {
+      "item": "minecraft:emerald"
+    },
+    "5": {
+      "item": "minecraft:emerald"
+    },
+    "6": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    },
+    "7": {
+      "item": "minecraft:emerald"
+    },
+    "8": {
+        "item": "avaritia:resource",
+		"data": 4,
+		"count": 9
+    }
+  },
+  "result": {
+    "item": "more_avaritia:gyroscope",
+    "count": 1
+  }
+}

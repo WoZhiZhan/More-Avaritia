@@ -1,0 +1,55 @@
+{
+  "group": "more_avaritia",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "2": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "3": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "4": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "5": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "6": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "7": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    },
+    "8": {
+		"item": "avaritia:resource",
+		"data": 6,
+		"count": 9
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_armorbody",
+    "count": 1
+  }
+}

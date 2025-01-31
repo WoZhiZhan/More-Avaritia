@@ -1,0 +1,50 @@
+{
+	"type": "avaritia:shaped",
+	"result": {
+		"item": "more_avaritia:compress_infinity_catalyst"
+	},
+	"pattern": [
+		"AOMBCDEFG",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN",
+		"NNNNNNNNN"
+	],
+	"key": {
+		"A": {
+			"item": "avaritia:resource",
+			"data": 5
+		},
+		"B": {
+			"item": "more_avaritia:big_diamond_block"
+		},
+		"C": {
+			"item": "more_avaritia:big_red_stone_block"
+		},
+		"D": {
+			"item": "more_avaritia:big_iron_block"
+		},
+		"E": {
+			"item": "more_avaritia:big_lapis_block"
+		},
+		"F": {
+			"item": "more_avaritia:big_emerald_block"
+		},
+		"G": {
+			"item": "more_avaritia:big_gold_block"
+		},
+		"N": {
+			"item": "more_avaritia:compressed_infinity_ingot"
+		},
+		"M": {
+			"item": "more_avaritia:big_quartz_block"
+		},
+		"O": {
+			"item": "more_avaritia:infinity_singularity"
+		}
+	}
+}
