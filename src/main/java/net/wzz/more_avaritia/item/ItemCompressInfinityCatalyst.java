@@ -86,6 +86,12 @@ public class ItemCompressInfinityCatalyst extends ElementsMoreAvaritiaMod.ModEle
 			return RainbowText.makeColour(super.getItemStackDisplayName(p_77653_1_));
 		}
 
+		@Override
+		public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+			super.addInformation(stack, worldIn, tooltip, flagIn);
+			tooltip.add("无穷无尽的力量。。。");
+		}
+
 		@Nullable
 		@Override
 		public FontRenderer getFontRenderer(ItemStack p_getFontRenderer_1_) {
