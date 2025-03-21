@@ -10,6 +10,8 @@ public class HasItemFromSlot {
     public static boolean hasArmor(EntityLivingBase living) {
         if (!(living instanceof EntityPlayer))
             return false;
+        if (((EntityPlayer) living).inventory == null)
+            return false;
         ItemStack hat = living.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         ItemStack chest = living.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
         ItemStack leg = living.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
