@@ -67,8 +67,9 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 	@Override
 	public void registerModels(ModelRegistryEvent event) {
 		ModelResourceLocation sword = new ModelResourceLocation("more_avaritia:infinity_pickaxe", "inventory");
-		ModelLoader.registerItemVariants(block, sword);
-		IBakedModel wrapped = new CosmicItemRender(TransformUtils.DEFAULT_TOOL, (modelRegistry) -> (IBakedModel) modelRegistry.getObject(sword));
+		ModelResourceLocation hammer = new ModelResourceLocation(new ResourceLocation("more_avaritia:infinity_pickaxe2"), "infinity_pickaxe=hammer");
+		ModelLoader.registerItemVariants(block, sword, hammer);
+		IBakedModel wrapped = new CosmicItemRender(TransformUtils.DEFAULT_TOOL, (modelRegistry) -> modelRegistry.getObject(sword));
 		ModelRegistryHelper.register(sword, wrapped);
 		ModelLoader.setCustomMeshDefinition(block, (stack) -> sword);
 	}
