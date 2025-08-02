@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package net.wzz.more_avaritia.util;
 
 import codechicken.lib.math.MathHelper;
@@ -34,6 +29,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.wzz.more_avaritia.MoreAvaritiaMod;
 
 @SideOnly(Side.CLIENT)
 public class ModelArmorSuperInfinity extends ModelBiped {
@@ -208,10 +204,10 @@ public class ModelArmorSuperInfinity extends ModelBiped {
         ItemStack chest = entityLiving.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
         ItemStack leg = entityLiving.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
         ItemStack foot = entityLiving.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-        boolean hasHat = hat.getItem() == MoreAvaritiaRegister.infinity_helmet;
-        boolean hasChest = chest.getItem() == MoreAvaritiaRegister.infinity_chestplate;
-        boolean hasLeg = leg.getItem() == MoreAvaritiaRegister.infinity_pants;
-        boolean hasFoot = foot.getItem() == MoreAvaritiaRegister.infinity_boots;
+        boolean hasHat = hat.getItem() == MoreAvaritiaMod.infinity_helmet;
+        boolean hasChest = chest.getItem() == MoreAvaritiaMod.infinity_chestplate;
+        boolean hasLeg = leg.getItem() == MoreAvaritiaMod.infinity_pants;
+        boolean hasFoot = foot.getItem() == MoreAvaritiaMod.infinity_boots;
         if (armorSlot == EntityEquipmentSlot.HEAD && hasHat && hasChest && hasLeg && hasFoot) {
             this.invulnRender = true;
         }

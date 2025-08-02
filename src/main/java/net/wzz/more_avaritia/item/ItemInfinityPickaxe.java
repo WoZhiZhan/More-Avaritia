@@ -2,6 +2,7 @@
 package net.wzz.more_avaritia.item;
 
 import codechicken.lib.model.ModelRegistryHelper;
+import codechicken.lib.util.ItemNBTUtils;
 import codechicken.lib.util.TransformUtils;
 import morph.avaritia.Avaritia;
 import morph.avaritia.api.ICosmicRenderItem;
@@ -13,13 +14,11 @@ import morph.avaritia.item.tools.ItemPickaxeInfinity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,10 +31,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -60,7 +56,7 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 
 	@Override
 	public void initElements() {
-		elements.items.add(() -> new ItemCustom());
+		elements.items.add(ItemCustom::new);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -71,7 +67,7 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 		ModelLoader.registerItemVariants(block, sword, hammer);
 		IBakedModel wrapped = new CosmicItemRender(TransformUtils.DEFAULT_TOOL, (modelRegistry) -> modelRegistry.getObject(sword));
 		ModelRegistryHelper.register(sword, wrapped);
-		ModelLoader.setCustomMeshDefinition(block, (stack) -> sword);
+		ModelLoader.setCustomMeshDefinition(block, (stack) -> (stack.hasTagCompound() && ItemNBTUtils.getBoolean(stack, "hammer")) ? hammer : sword);
 	}
 	public static class ItemCustom extends ItemPickaxeInfinity implements ICosmicRenderItem, IModelRegister {
 		public static boolean mode = false;
@@ -86,7 +82,7 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 			return ModItems.COSMIC_RARITY;
 		}
 		public Entity createEntity(World world, Entity location, ItemStack itemstack) {
-			return (Entity)new EntityImmortalItem(world, location, itemstack);
+			return new EntityImmortalItem(world, location, itemstack);
 		}
 		@SideOnly(Side.CLIENT)
 		public TextureAtlasSprite getMaskTexture(ItemStack stack, EntityLivingBase player) {
@@ -107,7 +103,7 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 			if (stack.getTagCompound() != null) {
 				textureMode = stack.getTagCompound().getCompoundTag("texture").getInteger("mode");
 			}
-			if (textureMode == 0) {
+			if (textureMode != 0) {
 				return super.getItemStackDisplayName(stack)+"·锤子模式";
 			}
 			return super.getItemStackDisplayName(stack);
@@ -121,6 +117,7 @@ public class ItemInfinityPickaxe extends ElementsMoreAvaritiaMod.ModElement {
 			return super.getDestroySpeed(stack, state);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 			super.addInformation(stack, worldIn, tooltip, flagIn);

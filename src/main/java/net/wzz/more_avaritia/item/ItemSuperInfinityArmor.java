@@ -46,6 +46,7 @@ public class ItemSuperInfinityArmor extends ItemArmor {
 			setCreativeTab(Avaritia.tab);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack p_getItemStackDisplayName_1_) {
 			return I18n.format("item.super_infinity_helmet");
@@ -57,6 +58,7 @@ public class ItemSuperInfinityArmor extends ItemArmor {
 			setCreativeTab(Avaritia.tab);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack p_getItemStackDisplayName_1_) {
 			return I18n.format("item.super_infinity_chestplate");
@@ -68,6 +70,7 @@ public class ItemSuperInfinityArmor extends ItemArmor {
 			setCreativeTab(Avaritia.tab);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack p_getItemStackDisplayName_1_) {
 			return I18n.format("item.super_infinity_pants");
@@ -79,6 +82,7 @@ public class ItemSuperInfinityArmor extends ItemArmor {
 			setCreativeTab(Avaritia.tab);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack p_getItemStackDisplayName_1_) {
 			return I18n.format("item.super_infinity_boots");

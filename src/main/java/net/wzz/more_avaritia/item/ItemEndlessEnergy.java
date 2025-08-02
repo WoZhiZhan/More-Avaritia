@@ -94,6 +94,7 @@ public class ItemEndlessEnergy extends ElementsMoreAvaritiaMod.ModElement {
 			return true;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);

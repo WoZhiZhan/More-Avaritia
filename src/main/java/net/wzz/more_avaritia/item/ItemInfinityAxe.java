@@ -96,6 +96,7 @@ public class ItemInfinityAxe extends ElementsMoreAvaritiaMod.ModElement {
 			return super.getDestroySpeed(stack, state) + 10;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 			super.addInformation(stack, worldIn, tooltip, flagIn);

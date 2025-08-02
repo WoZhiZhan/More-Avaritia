@@ -12,9 +12,11 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -26,6 +28,7 @@ import net.wzz.more_avaritia.util.RainbowText;
 import net.wzz.more_avaritia.util.RainbowFont;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 @ElementsMoreAvaritiaMod.ModElement.Tag
 public class ItemCompressInfinityCatalyst extends ElementsMoreAvaritiaMod.ModElement {
@@ -86,6 +89,7 @@ public class ItemCompressInfinityCatalyst extends ElementsMoreAvaritiaMod.ModEle
 			return RainbowText.makeColour(super.getItemStackDisplayName(p_77653_1_));
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 			super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -94,6 +98,7 @@ public class ItemCompressInfinityCatalyst extends ElementsMoreAvaritiaMod.ModEle
 
 		@Nullable
 		@Override
+		@SideOnly(Side.CLIENT)
 		public FontRenderer getFontRenderer(ItemStack p_getFontRenderer_1_) {
 			return RainbowFont.Instance;
 		}

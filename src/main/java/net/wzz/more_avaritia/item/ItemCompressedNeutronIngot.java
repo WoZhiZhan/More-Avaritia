@@ -63,6 +63,7 @@ public class ItemCompressedNeutronIngot extends ElementsMoreAvaritiaMod.ModEleme
 			return 1F;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);

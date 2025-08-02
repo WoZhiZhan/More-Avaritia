@@ -65,6 +65,7 @@ public class ItemChargingCrystal extends ElementsMoreAvaritiaMod.ModElement {
 			return true;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack stack) {
 			return RainbowText.makeColour(I18n.format("item.charging_crystal.name"));

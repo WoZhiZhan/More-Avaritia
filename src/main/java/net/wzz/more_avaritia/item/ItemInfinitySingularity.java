@@ -8,7 +8,6 @@ import morph.avaritia.api.ICosmicRenderItem;
 import morph.avaritia.api.registration.IModelRegister;
 import morph.avaritia.client.render.item.CosmicItemRender;
 import morph.avaritia.entity.EntityImmortalItem;
-import morph.avaritia.init.AvaritiaTextures;
 import morph.avaritia.init.ModItems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.FontRenderer;
@@ -22,7 +21,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -31,7 +29,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.wzz.more_avaritia.ElementsMoreAvaritiaMod;
 import net.wzz.more_avaritia.util.MoreAvaritiaRegister;
-import net.wzz.more_avaritia.util.MoreAvaritiaTextures;
 import net.wzz.more_avaritia.util.RainbowText;
 import net.wzz.more_avaritia.util.RainbowFont;
 
@@ -104,6 +101,7 @@ public class ItemInfinitySingularity extends ElementsMoreAvaritiaMod.ModElement 
 			return true;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
@@ -112,9 +110,12 @@ public class ItemInfinitySingularity extends ElementsMoreAvaritiaMod.ModElement 
 
 		@Nullable
 		@Override
+		@SideOnly(Side.CLIENT)
 		public FontRenderer getFontRenderer(ItemStack p_getFontRenderer_1_) {
 			return RainbowFont.Instance;
 		}
+
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack stack) {
 			return RainbowText.makeColour(I18n.format("item.infinity_singularity.name"));

@@ -96,13 +96,13 @@ public class ItemSuperInfinitySword extends ElementsMoreAvaritiaMod.ModElement {
 		@SubscribeEvent
 		public void onRightClickItem(PlayerInteractEvent.RightClickItem evt) {
 			EntityPlayer player = evt.getEntityPlayer();
-			Minecraft mc = Minecraft.getMinecraft();
-			if (mc.player.getHeldItemMainhand().getItem() == new ItemStack(block).getItem()) {
+			if (player.getHeldItemMainhand().getItem() == new ItemStack(block).getItem()) {
 				evt.setCancellationResult(EnumActionResult.SUCCESS);
 				player.setActiveHand(evt.getHand());
 			}
 		}
 
+		@SideOnly(Side.CLIENT)
 		@SubscribeEvent
 		public void onRenderLiving(RenderLivingEvent.Pre<AbstractClientPlayer> evt) {
 			if ((evt.getEntity() instanceof AbstractClientPlayer)) {
@@ -123,6 +123,7 @@ public class ItemSuperInfinitySword extends ElementsMoreAvaritiaMod.ModElement {
 			}
 		}
 
+		@SideOnly(Side.CLIENT)
 		@SubscribeEvent
 		public void onRenderHand(RenderSpecificHandEvent evt) {
 			EntityPlayerSP player = Minecraft.getMinecraft().player;
@@ -140,6 +141,7 @@ public class ItemSuperInfinitySword extends ElementsMoreAvaritiaMod.ModElement {
 			}
 		}
 
+		@SideOnly(Side.CLIENT)
 		@SubscribeEvent(priority = EventPriority.LOWEST)
 		public void onItemTooltip(ItemTooltipEvent event) {
 			if ((event.getItemStack().getItem() == block)) {
@@ -233,6 +235,7 @@ public class ItemSuperInfinitySword extends ElementsMoreAvaritiaMod.ModElement {
 			return 72000;
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 			super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -306,10 +309,10 @@ public class ItemSuperInfinitySword extends ElementsMoreAvaritiaMod.ModElement {
 			p_77615_3_.setEntityInvulnerable(false);
 		}
 
+		@SideOnly(Side.CLIENT)
 		@Override
 		public String getItemStackDisplayName(ItemStack p_77653_1_) {
 			return RainbowText.makeColour(I18n.format("item.super_infinity_sword.name"));
 		}
-
 	}
 }
