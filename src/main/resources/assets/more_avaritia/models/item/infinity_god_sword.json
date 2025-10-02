@@ -1,0 +1,11 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_avaritia:item/infinity_sword",
+    "layer1": "more_avaritia:item/infinity_sword_1"
+  },
+  "loader": "more_avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/infinity_sword_mask"
+  }
+}

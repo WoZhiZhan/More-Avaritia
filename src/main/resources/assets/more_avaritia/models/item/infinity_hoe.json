@@ -1,0 +1,10 @@
+{
+  "parent": "more_avaritia:hand",
+  "textures": {
+    "layer0": "more_avaritia:item/infinity_hoe"
+  },
+  "loader": "more_avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/infinity_hoe_mask"
+  }
+}

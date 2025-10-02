@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a a",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "avaritia:infinity_ingot"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_fake_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_avaritia:item/rod_ruling"
+  },
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/rod_ruling_mask"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "more_avaritia:item/neutron_bow"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1
+      },
+      "model": "more_avaritia:item/neutron_bow_pulling_0"
+    },
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1,
+        "more_avaritia:pull": 0.65
+      },
+      "model": "more_avaritia:item/neutron_bow_pulling_1"
+    },
+    {
+      "predicate": {
+        "more_avaritia:pulling": 1,
+        "more_avaritia:pull": 0.9
+      },
+      "model": "more_avaritia:item/neutron_bow_pulling_2"
+    }
+  ]
+}

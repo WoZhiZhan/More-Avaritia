@@ -1,0 +1,18 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_avaritia:item/infinity_shovel"
+  },
+  "loader": "more_avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/infinity_shovel_mask"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "more_avaritia:destroyer": 1
+      },
+      "model": "more_avaritia:item/infinity_shovel_destroyer"
+    }
+  ]
+}

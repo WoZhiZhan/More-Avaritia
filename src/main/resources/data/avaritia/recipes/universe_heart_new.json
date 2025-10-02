@@ -1,0 +1,33 @@
+{
+  "type": "avaritia:shaped_table",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "avaritia:infinity_nugget"
+    },
+    "I": {
+      "item": "avaritia:eternal_singularity"
+    },
+    "N": {
+      "item": "avaritia:infinity_catalyst"
+    },
+    "X": {
+      "item": "more_avaritia:compressed_infinity"
+    }
+  },
+  "pattern": [
+    "IIIIIIIII",
+    "ICCCCCCCI",
+    "ICXXXXXCI",
+    "ICX   XCI",
+    "ICX N XCI",
+    "ICX   XCI",
+    "ICXXXXXCI",
+    "ICCCCCCCI",
+    "IIIIIIIII"
+  ],
+  "result": {
+    "item": "more_avaritia:universe_heart"
+  },
+  "show_notification": true
+}

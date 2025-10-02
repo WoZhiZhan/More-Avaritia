@@ -1,0 +1,30 @@
+{
+  "type": "avaritia:shaped_table",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "more_avaritia:compressed_infinity_ingot"
+    },
+    "W": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "X": {
+      "item": "avaritia:infinity_bow"
+    }
+  },
+  "pattern": [
+    "     II  ",
+    "    I W  ",
+    "   I  W  ",
+    "  I   W  ",
+    "  X   W  ",
+    "  I   W  ",
+    "   I  W  ",
+    "    I W  ",
+    "     II  "
+  ],
+  "result": {
+    "item": "more_avaritia:infinity_bow"
+  },
+  "show_notification": true
+}

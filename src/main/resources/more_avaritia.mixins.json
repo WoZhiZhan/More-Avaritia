@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.wzz.more_avaritia.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "more_avaritia.refmap.json",
+  "mixinPriority": 2147483647,
+  "mixins": [
+    "MixinLivingEntity"
+  ],
+  "client": [
+    "MixinItemRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

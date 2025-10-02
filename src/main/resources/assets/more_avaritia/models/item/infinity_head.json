@@ -1,0 +1,10 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "more_avaritia:item/infinity_head"
+  },
+  "loader": "avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/infinity_helmet_mask"
+  }
+}

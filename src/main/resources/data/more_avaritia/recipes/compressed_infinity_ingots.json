@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "more_avaritia:compressed_infinity"
+    }
+  ],
+  "result": {
+    "item": "more_avaritia:compressed_infinity_ingot",
+    "count": 9
+  }
+}

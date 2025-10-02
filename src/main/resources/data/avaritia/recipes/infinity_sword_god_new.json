@@ -1,0 +1,36 @@
+{
+  "type": "avaritia:shaped_table",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "avaritia:crystal_matrix_ingot"
+    },
+    "I": {
+      "item": "more_avaritia:compressed_infinity"
+    },
+    "N": {
+      "item": "avaritia:eternal_singularity"
+    },
+    "X": {
+      "item": "more_avaritia:infinity_sword"
+    },
+    "B": {
+      "item": "more_avaritia:universe_heart"
+    }
+  },
+  "pattern": [
+    "       IB",
+    "      III",
+    "     III ",
+    "    III  ",
+    " C III   ",
+    "  CII    ",
+    "  NC     ",
+    "BN  C    ",
+    "XB       "
+  ],
+  "result": {
+    "item": "more_avaritia:infinity_god_sword"
+  },
+  "show_notification": true
+}

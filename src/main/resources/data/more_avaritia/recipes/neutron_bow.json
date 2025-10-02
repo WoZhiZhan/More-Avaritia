@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " ba",
+    "b a",
+    " ba"
+  ],
+  "key": {
+    "a": {
+      "item": "stick"
+    },
+    "b": {
+      "item": "avaritia:neutron_ingot"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:neutron_bow",
+    "count": 1
+  }
+}

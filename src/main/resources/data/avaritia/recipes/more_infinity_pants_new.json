@@ -1,0 +1,36 @@
+{
+  "type": "avaritia:shaped_table",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "avaritia:crystal_matrix_ingot"
+    },
+    "I": {
+      "item": "more_avaritia:compressed_infinity_ingot"
+    },
+    "N": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "X": {
+      "item": "avaritia:infinity_catalyst"
+    },
+    "B": {
+      "item": "avaritia:infinity_pants"
+    }
+  },
+  "pattern": [
+    "NNNNNNNNN",
+    "NIIIBIIIN",
+    "NINNXNNIN",
+    "NIN   NIN",
+    "NCN   NCN",
+    "NIN   NIN",
+    "NIN   NIN",
+    "NIN   NIN",
+    "NNN   NNN"
+  ],
+  "result": {
+    "item": "more_avaritia:infinity_legs"
+  },
+  "show_notification": true
+}

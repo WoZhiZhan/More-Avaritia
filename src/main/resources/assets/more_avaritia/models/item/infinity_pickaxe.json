@@ -1,0 +1,18 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_avaritia:item/infinity_pickaxe"
+  },
+  "loader": "more_avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/infinity_pickaxe_mask"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "more_avaritia:hammer": 1
+      },
+      "model": "more_avaritia:item/infinity_pickaxe_hammer"
+    }
+  ]
+}

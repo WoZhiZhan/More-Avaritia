@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Not specified"
+
+[[mods]]
+modId="more_avaritia"
+version="2.0"
+displayName="MoreAvaritia"
+authors="wzz"
+
+[[dependencies.more_avaritia]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.more_avaritia]]
+modId="avaritia"
+mandatory=true
+versionRange="[1.0,10.0)"
+ordering="AFTER"
+side="BOTH"
