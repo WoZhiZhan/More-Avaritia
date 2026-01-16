@@ -49,7 +49,6 @@ public class MoreAvaritiaMod {
 		MoreAvaritiaModBlocks.REGISTRY.register(bus);
 		MoreAvaritiaModEntities.REGISTRY.register(bus);
 		MoreAvaritiaModItems.REGISTRY.register(bus);
-
 		MoreAvaritiaModTabs.REGISTRY.register(bus);
 
 	}

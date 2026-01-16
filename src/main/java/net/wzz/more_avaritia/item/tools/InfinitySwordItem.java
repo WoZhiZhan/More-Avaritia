@@ -3,7 +3,7 @@ package net.wzz.more_avaritia.item.tools;
 
 import committee.nova.mods.avaritia.common.entity.ImmortalItemEntity;
 import committee.nova.mods.avaritia.init.config.ModConfig;
-import committee.nova.mods.avaritia.init.registry.ModDamageTypes;
+import net.wzz.more_avaritia.init.ModDamageTypes;
 import committee.nova.mods.avaritia.init.registry.ModEntities;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import net.minecraft.network.chat.Component;

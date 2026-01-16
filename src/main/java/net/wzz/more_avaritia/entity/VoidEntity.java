@@ -3,7 +3,6 @@ package net.wzz.more_avaritia.entity;
 import com.google.common.base.Predicate;
 import com.mojang.authlib.GameProfile;
 import committee.nova.mods.avaritia.common.entity.ImmortalItemEntity;
-import committee.nova.mods.avaritia.init.registry.ModDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -25,6 +24,7 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
+import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
 
 import java.util.List;

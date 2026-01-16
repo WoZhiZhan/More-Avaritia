@@ -1,6 +1,6 @@
 package net.wzz.more_avaritia.event;
 
-import committee.nova.mods.avaritia.init.registry.ModDamageTypes;
+import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;

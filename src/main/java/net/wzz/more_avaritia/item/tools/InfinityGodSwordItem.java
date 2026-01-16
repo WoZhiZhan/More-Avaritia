@@ -2,7 +2,7 @@
 package net.wzz.more_avaritia.item.tools;
 
 import committee.nova.mods.avaritia.init.config.ModConfig;
-import committee.nova.mods.avaritia.init.registry.ModDamageTypes;
+import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

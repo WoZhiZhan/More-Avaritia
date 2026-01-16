@@ -1,7 +1,7 @@
 package net.wzz.more_avaritia.util;
 
 import committee.nova.mods.avaritia.common.item.tools.InfinityArmorItem;
-import committee.nova.mods.avaritia.init.registry.ModDamageTypes;
+import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.multiplayer.ClientLevel;

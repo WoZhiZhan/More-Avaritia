@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package net.wzz.more_avaritia.entity.model;
 
 import com.google.common.collect.ImmutableList;
@@ -283,7 +278,6 @@ public class InfinityArmorModel extends HumanoidModel<Player> {
                     t.render(pPoseStack, InfinityArmorModel.material(InfinityArmorModel.MASK_INV).buffer(pBuffer, InfinityArmorModel::mask2), pPackedLight, 1, 1.0F, 1.0F, 1.0F, 1.0F);
                 });
             }
-
         }
     }
 }
