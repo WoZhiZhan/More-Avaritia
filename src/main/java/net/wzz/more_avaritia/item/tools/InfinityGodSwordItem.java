@@ -140,9 +140,9 @@ public class InfinityGodSwordItem extends InfinitySwordItem {
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand hand) {
 		ItemStack heldItem = player.getItemInHand(hand);
 		if (!player.isShiftKeyDown())
-			InfinityUtils.aoeAttack(player, 100f, Float.POSITIVE_INFINITY, true, ModConfig.isSwordAttackLightning.get());
+			InfinityUtils.aoeAttack(player, 100f, Float.POSITIVE_INFINITY, true, ModConfig.isSwordAttackLightning.get(), true);
 		else  {
-			InfinityUtils.aoeAttack(player, 200f, Float.POSITIVE_INFINITY, true, true);
+			InfinityUtils.aoeAttack(player, 200f, Float.POSITIVE_INFINITY, true, true, true);
 			AABB aabb = player.getBoundingBox().deflate(400);
 			List<Entity> toAttack = player.level().getEntities(player, aabb);
 			toAttack.stream().filter((entity) -> entity instanceof ItemEntity).forEach((entity) -> {

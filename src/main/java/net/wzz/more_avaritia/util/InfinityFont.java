@@ -32,7 +32,8 @@ public class InfinityFont extends Font {
             return true;
         });
         String text = ChatFormatting.stripFormatting(stringBuilder.toString());
-        if (text != null && !text.equals(I18n.get("item.more_avaritia.infinity_god_sword")) && !text.equals(I18n.get("item.more_avaritia.universe_heart")))
+        if (text != null && !text.equals(I18n.get("item.more_avaritia.infinity_god_sword")) && !text.equals(I18n.get("item.more_avaritia.universe_heart"))
+        && !text.startsWith("more_avaritia:"))
             return super.drawInBatch(formattedCharSequence,x,y,rgb,b1,matrix4f,multiBufferSource,mode,i,i1);
         if (text != null) {
             float hueOffset = (float) net.minecraft.Util.getMillis() / 3000.0F;

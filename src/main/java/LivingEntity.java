@@ -1377,7 +1377,7 @@ public abstract class LivingEntity extends Entity implements Attackable, net.min
          drops.forEach(e -> level().addFreshEntity(e));
    }
 
-   protected void dropEquipment() {
+   public void dropEquipment() {
    }
 
    protected void dropExperience() {
@@ -1388,7 +1388,7 @@ public abstract class LivingEntity extends Entity implements Attackable, net.min
 
    }
 
-   protected void dropCustomDeathLoot(DamageSource p_21018_, int p_21019_, boolean p_21020_) {
+   public void dropCustomDeathLoot(DamageSource p_21018_, int p_21019_, boolean p_21020_) {
    }
 
    public ResourceLocation getLootTable() {

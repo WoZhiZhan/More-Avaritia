@@ -110,7 +110,8 @@ public class InfinitySwordItem extends SwordItem {
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand hand) {
 		ItemStack heldItem = player.getItemInHand(hand);
 		if (!level.isClientSide) {
-			InfinityUtils.aoeAttack(player, (float) ModConfig.swordAttackRange.get(), (float) ModConfig.swordRangeDamage.get(), true, ModConfig.isSwordAttackLightning.get());
+			InfinityUtils.aoeAttack(player, (float) ModConfig.swordAttackRange.get(), (float) ModConfig.swordRangeDamage.get(),
+					true, ModConfig.isSwordAttackLightning.get(), false);
 		}
 		level.playSound(player, player.getOnPos(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0F, 5.0F);
 		return InteractionResultHolder.success(heldItem);

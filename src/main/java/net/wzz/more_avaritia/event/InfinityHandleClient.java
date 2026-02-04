@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -129,9 +130,12 @@ public class InfinityHandleClient {
             e.setBackgroundEnd(endColor);
         }
         if (e.getItemStack().getItem() instanceof InfinityGodSwordItem) {
-            int startColor = 0xFF0000 | 0xFF000000;
-            e.setBackgroundStart(startColor);
-            e.setBorderStart(startColor);
+            long time = System.currentTimeMillis();
+            float hue = (time % 3000L) / 3000.0F; // 0~1 循环
+            int rgb = Mth.hsvToRgb(hue, 1.0F, 1.0F);
+            int dynamicColor = 0xFF000000 | rgb;
+            e.setBackgroundStart(dynamicColor);
+            e.setBorderStart(dynamicColor);
             e.setBackgroundEnd(0);
             e.setBorderEnd(0);
         }
