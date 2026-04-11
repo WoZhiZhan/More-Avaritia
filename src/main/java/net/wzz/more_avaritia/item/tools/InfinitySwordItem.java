@@ -1,4 +1,3 @@
-
 package net.wzz.more_avaritia.item.tools;
 
 import committee.nova.mods.avaritia.common.entity.ImmortalItemEntity;
@@ -71,7 +70,7 @@ public class InfinitySwordItem extends SwordItem {
 			victim.getCombatTracker().recordDamage(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim), victim.getHealth());
 			if (victim instanceof Player victimP) {
                 if (InfinityUtils.isInfinite(victimP)) {
-					victimP.level().explode(livingEntity, (double) victimP.getBlockX(), (double) victimP.getBlockY(), (double) victimP.getBlockZ(), 25.0F, ExplosionInteraction.BLOCK);
+					victimP.level().explode(livingEntity, victimP.getBlockX(), victimP.getBlockY(), victimP.getBlockZ(), 25.0F, ExplosionInteraction.BLOCK);
 					return true;
 				}
 			}

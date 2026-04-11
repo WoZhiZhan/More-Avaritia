@@ -52,10 +52,10 @@ public class InfinityHandleClient {
         event.enqueueWork(() -> {
             setPropertyOverride(MoreAvaritiaModItems.INFINITY_PICKAXE.get(), InfinityUtils.rl("hammer"), (itemStack, world, livingEntity, d) -> {
                 if (itemStack.getItem() instanceof InfinityPickaxeItem) {
-                    return itemStack.getOrCreateTag().getBoolean("hammer") ? 1.0F : 0.0F;
-                } else {
-                    return 0.0F;
+                    return itemStack.getOrCreateTagElement("mode").getBoolean("infinity_pickaxe_hammer") ||
+                            itemStack.getOrCreateTag().getBoolean("hammer")? 1.0F : 0.0F;
                 }
+                return 0.0F;
             });
         });
         event.enqueueWork(() -> {
@@ -88,7 +88,8 @@ public class InfinityHandleClient {
         event.enqueueWork(() -> {
             setPropertyOverride(MoreAvaritiaModItems.INFINITY_SHOVEL.get(), InfinityUtils.rl("destroyer"), (itemStack, world, livingEntity, d) -> {
                 if (itemStack.getItem() instanceof InfinityShovelItem) {
-                    return itemStack.getOrCreateTag().getBoolean("destroyer") ? 1.0F : 0.0F;
+                    return itemStack.getOrCreateTag().getBoolean("destroyer")
+                            || itemStack.getOrCreateTagElement("mode").getBoolean("infinity_shovel_destroyer") ? 1.0F : 0.0F;
                 } else {
                     return 0.0F;
                 }

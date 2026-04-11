@@ -28,6 +28,7 @@ import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class VoidEntity extends Entity {
@@ -136,14 +137,14 @@ public class VoidEntity extends Entity {
         .forEach(entity -> {
             if (entity instanceof EnderDragon) {
               EnderDragon dragon = (EnderDragon)entity;
-              dragon.hurt(dragon.head, ModDamageTypes.causeRandomDamage((Entity)this.user), 1000.0F);
+              dragon.hurt(dragon.head, ModDamageTypes.causeRandomDamage(Objects.requireNonNullElse(this.user, this)), 1000.0F);
               dragon.setHealth(0.0F);
             } else if (entity instanceof WitherBoss) {
               WitherBoss wither = (WitherBoss)entity;
               wither.setInvulnerableTicks(0);
-              wither.hurt(ModDamageTypes.causeRandomDamage(this.user), 1000.0F);
+              wither.hurt(ModDamageTypes.causeRandomDamage(Objects.requireNonNullElse(this.user, this)), 1000.0F);
             } else {
-              entity.hurt(ModDamageTypes.causeRandomDamage(this.user), 1000.0F);
+              entity.hurt(ModDamageTypes.causeRandomDamage(Objects.requireNonNullElse(this.user, this)), 1000.0F);
             } 
           });
       remove(Entity.RemovalReason.KILLED);
@@ -159,7 +160,7 @@ public class VoidEntity extends Entity {
     double size = getVoidScale(age) * 5D - 0.2D;
     int range = (int)(size * suckRange);
     AABB axisAlignedBB = new AABB(position.offset(-range, -range, -range), position.offset(range, range, range));
-    List<Entity> sucked = level().getEntitiesOfClass(Entity.class, axisAlignedBB, (Predicate)SUCK_PREDICATE);
+    List<Entity> sucked = level().getEntitiesOfClass(Entity.class, axisAlignedBB, SUCK_PREDICATE);
     double radius = getVoidScale(age) * 5D;
     for (Entity suckee : sucked) {
       if (suckee != this && !(suckee instanceof VoidThrowEntity) && !(suckee instanceof Player)) {
@@ -177,7 +178,7 @@ public class VoidEntity extends Entity {
           double motionY = motion.y + dy / len * strength * power;
           double motionZ = motion.z + dz / len * strength * power;
           suckee.setDeltaMovement(motionX, motionY, motionZ);
-          suckee.hurt(ModDamageTypes.causeRandomDamage(this.user), 100f);
+          suckee.hurt(ModDamageTypes.causeRandomDamage(Objects.requireNonNullElse(this.user, this)), 100f);
         } 
       }
     }
