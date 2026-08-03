@@ -88,7 +88,7 @@ public class LightningStaffItem extends Item implements IItemType {
             for (Entity entity : entities) {
                 if (entity instanceof LivingEntity livingEntity2) {
                     if (!livingEntity2.hasLineOfSight(player)) continue;
-                    float damage = 200.0F;
+                    float damage = 1000.0F;
                     livingEntity2.hurt(level.damageSources().lightningBolt(), damage);
                     if (livingEntity2.isOnFire()) {
                         livingEntity2.setRemainingFireTicks(livingEntity2.getRemainingFireTicks() + 20);

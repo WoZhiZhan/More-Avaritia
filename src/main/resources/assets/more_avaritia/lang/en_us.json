@@ -53,6 +53,6 @@
   "item.more_avaritia.lighting_staff": "Lightning Staff",
   "item.lightning_staff.text.1": "§8§oWield thunder at your fingertips",
   "item.lightning_staff.text.2": "§8§oHold right-click to unleash devastating lightning beams",
-  "item.lightning_staff.text.3": "§8§oDeals 200 damage per tick and ignites targets",
+  "item.lightning_staff.text.3": "§8§oDeals 1000 damage per tick and ignites targets",
   "item.lightning_staff.text.4": "§8§oWhere starry thunder passes, all becomes scorched earth"
 }
