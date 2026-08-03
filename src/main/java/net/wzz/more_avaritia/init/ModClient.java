@@ -9,11 +9,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.wzz.more_avaritia.MoreAvaritiaMod;
 import net.wzz.more_avaritia.client.comic.CosmicModelLoader;
 
+import java.io.IOException;
+
 @Mod.EventBusSubscriber(modid = MoreAvaritiaMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModClient {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void onRegisterShaders(RegisterShadersEvent event) {
+    public static void onRegisterShaders(RegisterShadersEvent event) throws IOException {
         ModShaders.onRegisterShaders(event);
     }
 

@@ -8,11 +8,9 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.common.ForgeHooks;
+import net.wzz.more_avaritia.config.ModConfig;
 import net.wzz.more_avaritia.init.ModDamageTypes;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -32,12 +30,10 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -48,10 +44,9 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.PartEntity;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.wzz.more_avaritia.entity.StarLightingEntity;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.init.ModEntities;
+import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.network.ClientEntityRemovePacket;
 import net.wzz.more_avaritia.network.util.NetworkHandler;
 import org.jetbrains.annotations.NotNull;
@@ -80,7 +75,7 @@ public class InfinityUtils {
             DamageSource src = player.damageSources().source(ModDamageTypes.INFINITY, player, player);
             toAttack.stream().filter((entity) -> entity instanceof Mob).forEach((entity) -> {
                 Mob mob = (Mob) entity;
-                StarLightingEntity lightningbolt = new StarLightingEntity(MoreAvaritiaModEntities.STAR_LIGHTING.get(), player.level());
+                StarLightingEntity lightningbolt = new StarLightingEntity(ModEntities.STAR_LIGHTING.get(), player.level());
                 if (lightOn) {
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(entity.blockPosition()));
                     player.level().addFreshEntity(lightningbolt);
@@ -217,10 +212,10 @@ public class InfinityUtils {
             return false;
         if (player.getInventory() == null || player.getInventory().armor == null)
             return false;
-        return player.getInventory().getArmor(3).getItem() == MoreAvaritiaModItems.INFINITY_FAKE_HELMET.get() &&
-                player.getInventory().getArmor(2).getItem() == MoreAvaritiaModItems.INFINITY_FAKE_CHESTPLATE.get() &&
-                player.getInventory().getArmor(1).getItem() == MoreAvaritiaModItems.INFINITY_FAKE_LEGGINGS.get() &&
-                player.getInventory().getArmor(0).getItem() == MoreAvaritiaModItems.INFINITY_FAKE_BOOTS.get();
+        return player.getInventory().getArmor(3).getItem() == ModItems.INFINITY_FAKE_HELMET.get() &&
+                player.getInventory().getArmor(2).getItem() == ModItems.INFINITY_FAKE_CHESTPLATE.get() &&
+                player.getInventory().getArmor(1).getItem() == ModItems.INFINITY_FAKE_LEGGINGS.get() &&
+                player.getInventory().getArmor(0).getItem() == ModItems.INFINITY_FAKE_BOOTS.get();
     }
 
     public static boolean hasInfinityArmor(Player player) {
@@ -228,10 +223,10 @@ public class InfinityUtils {
             return false;
         if (player.getInventory() == null || player.getInventory().armor == null)
             return false;
-        return player.getInventory().getArmor(3).getItem() == MoreAvaritiaModItems.INFINITY_HEAD.get() &&
-                player.getInventory().getArmor(2).getItem() == MoreAvaritiaModItems.INFINITY_Chestplate.get() &&
-                player.getInventory().getArmor(1).getItem() == MoreAvaritiaModItems.INFINITY_LEGS.get() &&
-                player.getInventory().getArmor(0).getItem() == MoreAvaritiaModItems.INFINITY_BOOTS.get();
+        return player.getInventory().getArmor(3).getItem() == ModItems.INFINITY_HEAD.get() &&
+                player.getInventory().getArmor(2).getItem() == ModItems.INFINITY_Chestplate.get() &&
+                player.getInventory().getArmor(1).getItem() == ModItems.INFINITY_LEGS.get() &&
+                player.getInventory().getArmor(0).getItem() == ModItems.INFINITY_BOOTS.get();
     }
 
     public static void playSound(LevelAccessor world, SoundEvent s, LivingEntity living) {
@@ -249,10 +244,18 @@ public class InfinityUtils {
     }
 
     public static void killEntity(Entity entity, LivingEntity source) {
+        if (entity == null)
+            return;
+        if (entity instanceof Animal && !ModConfig.KILL_ANIMALS.get()) {
+            return;
+        }
         if (!(entity instanceof LivingEntity living)) {
             if (entity instanceof PartEntity<?> part) {
                 killEntity(part.getParent(), source);
                 part.discard();
+            }
+            if (ModConfig.KILL_OTHER_ENTITIES.get()) {
+                entity.discard();
             }
             return;
         }
@@ -260,6 +263,27 @@ public class InfinityUtils {
             if (!dragon.isDeadOrDying() && dragon.getClass() == EnderDragon.class) {
                 dragon.setHealth(0.0F);
                 dragon.getPhaseManager().setPhase(EnderDragonPhase.DYING);
+                return;
+            }
+        }
+        if (living instanceof Player player) {
+            if (!ModConfig.KILL_PLAYERS.get()) return;
+            if (!InfinityUtils.hasInfinityArmor(player) && !InfinityUtils.hasItem(player, ModItems.INFINITY_GOD_SWORD.get())) {
+                List<ItemStack> allItems = new ArrayList<>();
+                allItems.addAll(player.getInventory().items);
+                allItems.addAll(player.getInventory().armor);
+                allItems.addAll(player.getInventory().offhand);
+                for (ItemStack stack : allItems) {
+                    if (!stack.isEmpty()) {
+                        ItemStack dropStack = stack.copy();
+                        player.drop(dropStack, true, false);
+                    }
+                }
+                player.getInventory().clearContent();
+                forceSetHealth(player, 0f, source.level.damageSources().mobAttack(source));
+                player.teleportTo(-999, -999, -999);
+                player.setPose(Pose.DYING);
+                player.getActiveEffects().clear();
                 return;
             }
         }

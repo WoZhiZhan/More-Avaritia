@@ -7,7 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.PlayMessages;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
+import net.wzz.more_avaritia.init.ModEntities;
 import org.jetbrains.annotations.NotNull;
 
 public class StarLightingEntity extends LightningBolt {
@@ -15,7 +15,7 @@ public class StarLightingEntity extends LightningBolt {
     public long seed;
     private int flashes;
     public StarLightingEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(MoreAvaritiaModEntities.STAR_LIGHTING.get(), world);
+        this(ModEntities.STAR_LIGHTING.get(), world);
     }
 
     public void tick() {

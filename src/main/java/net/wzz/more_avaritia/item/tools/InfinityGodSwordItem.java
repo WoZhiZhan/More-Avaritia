@@ -2,6 +2,7 @@
 package net.wzz.more_avaritia.item.tools;
 
 import committee.nova.mods.avaritia.init.config.ModConfig;
+import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.init.ModDamageTypes;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
@@ -25,7 +26,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ToolAction;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.util.InfinityFont;
 import net.wzz.more_avaritia.util.InfinityUtils;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +36,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class InfinityGodSwordItem extends InfinitySwordItem {
+public class InfinityGodSwordItem extends InfinitySwordItem implements IItemType {
 	public InfinityGodSwordItem() {
 		super();
+	}
+
+	@Override
+	public Type getItemType() {
+		return Type.TOOL;
 	}
 
 	@Override
@@ -104,7 +110,7 @@ public class InfinityGodSwordItem extends InfinitySwordItem {
 		super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
 		if (p_41406_ instanceof Player player) {
 			player.clearFire();
-			if (player.getMainHandItem().getItem().equals(MoreAvaritiaModItems.INFINITY_GOD_SWORD.get())) {
+			if (player.getMainHandItem().getItem().equals(ModItems.INFINITY_GOD_SWORD.get())) {
 				if (!player.getAbilities().mayfly) {
 					player.getAbilities().mayfly = true;
 					player.getPersistentData().putBoolean("isGodInfinity", true);

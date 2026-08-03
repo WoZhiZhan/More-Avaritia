@@ -13,7 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
-public class MoreAvaritiaModBlocks {
+public class ModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, MoreAvaritiaMod.MODID);
 	public static final RegistryObject<Block> COMPRESSED_INFINITY = REGISTRY.register("compressed_infinity", () -> new CompressedInfinityBlock());
 	// Start of user code block custom blocks

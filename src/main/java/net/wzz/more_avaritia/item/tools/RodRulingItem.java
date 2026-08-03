@@ -13,12 +13,18 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.entity.VoidThrowEntity;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
+import net.wzz.more_avaritia.init.ModEntities;
 
-public class RodRulingItem extends Item {
+public class RodRulingItem extends Item implements IItemType {
 	public RodRulingItem() {
 		super(new Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC));
+	}
+
+	@Override
+	public Type getItemType() {
+		return Type.TOOL;
 	}
 
 	@Override
@@ -41,7 +47,7 @@ public class RodRulingItem extends Item {
 	public void releaseUsing(ItemStack p_41412_, Level p_41413_, LivingEntity entity, int p_41415_) {
 		super.releaseUsing(p_41412_, p_41413_, entity, p_41415_);
 		if (!entity.level().isClientSide) {
-			VoidThrowEntity voidEntity = MoreAvaritiaModEntities.VOID_THROW.get().create(p_41413_);
+			VoidThrowEntity voidEntity = ModEntities.VOID_THROW.get().create(p_41413_);
 			if (voidEntity != null) {
 				voidEntity.setShooter(entity);
 				voidEntity.setPos(entity.getX(), entity.getEyeY() + 0.1, entity.getZ());

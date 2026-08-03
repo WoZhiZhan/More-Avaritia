@@ -49,5 +49,10 @@
   "item.more_avaritia.infinity_legs": "无尽护腿·§e改",
   "item.more_avaritia.infinity_boots": "无尽靴子·§e改",
   "item.infinity_sword_god.text.8": "§7§oShift右键全图吸收掉落物",
-  "resourcepack.more_avaritia.desc": "更多无尽物品旧版资源包"
+  "resourcepack.more_avaritia.desc": "更多无尽物品旧版资源包",
+  "item.more_avaritia.lighting_staff": "雷电法杖",
+  "item.lightning_staff.text.1": "§8§o握持即引雷霆于掌间",
+  "item.lightning_staff.text.2": "§8§o长按右键持续释放毁灭雷磁束",
+  "item.lightning_staff.text.3": "§8§o每息二百点贯穿伤害并引燃目标",
+  "item.lightning_staff.text.4": "§8§o星空雷霆所过之处，万物焦土"
 }

@@ -1,0 +1,10 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_avaritia:item/lighting_staff"
+  },
+  "loader": "more_avaritia:cosmic",
+  "cosmic": {
+    "mask": "more_avaritia:item/lighting_staff_mask"
+  }
+}

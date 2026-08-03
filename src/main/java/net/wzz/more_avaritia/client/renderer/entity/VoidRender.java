@@ -1,4 +1,4 @@
-package net.wzz.more_avaritia.entity.renderer;
+package net.wzz.more_avaritia.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;

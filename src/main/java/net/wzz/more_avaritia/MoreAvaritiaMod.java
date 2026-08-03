@@ -2,15 +2,13 @@ package net.wzz.more_avaritia;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.wzz.more_avaritia.event.InfinityHandle;
+import net.wzz.more_avaritia.config.ModConfig;
 import net.wzz.more_avaritia.event.InfinityHandleClient;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+import net.wzz.more_avaritia.init.ModEntities;
 
-import net.wzz.more_avaritia.init.MoreAvaritiaModTabs;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
-import net.wzz.more_avaritia.init.MoreAvaritiaModBlocks;
+import net.wzz.more_avaritia.init.ModTabs;
+import net.wzz.more_avaritia.init.ModItems;
+import net.wzz.more_avaritia.init.ModBlocks;
 
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
@@ -37,19 +35,19 @@ import java.util.AbstractMap;
 
 @Mod("more_avaritia")
 public class MoreAvaritiaMod {
-	public static final Logger LOGGER = LogManager.getLogger(MoreAvaritiaMod.class);
 	public static final String MODID = "more_avaritia";
 
 	public MoreAvaritiaMod() {
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		bus.register(ModConfig.class);
 		if (FMLEnvironment.dist == Dist.CLIENT) {
 			bus.addListener(InfinityHandleClient::init);
 		}
-		MoreAvaritiaModBlocks.REGISTRY.register(bus);
-		MoreAvaritiaModEntities.REGISTRY.register(bus);
-		MoreAvaritiaModItems.REGISTRY.register(bus);
-		MoreAvaritiaModTabs.REGISTRY.register(bus);
+		ModBlocks.REGISTRY.register(bus);
+		ModEntities.REGISTRY.register(bus);
+		ModItems.REGISTRY.register(bus);
+		ModTabs.REGISTRY.register(bus);
 
 	}
 

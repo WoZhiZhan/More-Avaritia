@@ -21,7 +21,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
+import net.wzz.more_avaritia.init.ModEntities;
 
 import java.util.List;
 
@@ -64,16 +64,16 @@ public class VoidSpeedEntity extends Entity {
   }
 
   public VoidSpeedEntity(PlayMessages.SpawnEntity packet, Level world) {
-    this(MoreAvaritiaModEntities.VOID_SPEED.get(), world);
+    this(ModEntities.VOID_SPEED.get(), world);
     this.noCulling = true;
   }
 
   public VoidSpeedEntity(Level level) {
-    this(MoreAvaritiaModEntities.VOID_SPEED.get(), level);
+    this(ModEntities.VOID_SPEED.get(), level);
   }
 
   public VoidSpeedEntity(Level level, LivingEntity shooter) {
-    this(MoreAvaritiaModEntities.VOID_SPEED.get(), level);
+    this(ModEntities.VOID_SPEED.get(), level);
     setUser(shooter);
   }
 

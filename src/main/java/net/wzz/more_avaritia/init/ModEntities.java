@@ -21,7 +21,7 @@ import net.wzz.more_avaritia.entity.VoidSpeedEntity;
 import net.wzz.more_avaritia.entity.VoidThrowEntity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class MoreAvaritiaModEntities {
+public class ModEntities {
 	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MoreAvaritiaMod.MODID);
 	public static final RegistryObject<EntityType<StarLightingEntity>> STAR_LIGHTING = register("star_lighting",
 			EntityType.Builder.<StarLightingEntity>of(StarLightingEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(StarLightingEntity::new)

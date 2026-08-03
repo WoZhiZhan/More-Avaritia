@@ -1,5 +1,6 @@
 package net.wzz.more_avaritia.event;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.DeathScreen;
@@ -8,18 +9,25 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.wzz.more_avaritia.entity.model.InfinityArmorModel;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.client.SkillBolt;
+import net.wzz.more_avaritia.client.model.InfinityArmorModel;
+import net.wzz.more_avaritia.client.screens.ModConfigScreen;
+import net.wzz.more_avaritia.init.ModItems;
+import net.wzz.more_avaritia.init.ModShaders;
 import net.wzz.more_avaritia.item.UniverseHeartItem;
 import net.wzz.more_avaritia.item.bow.InfinityBowItem;
 import net.wzz.more_avaritia.item.bow.NeutronBowItem;
@@ -50,43 +58,35 @@ public class InfinityHandleClient {
     @SubscribeEvent
     public static void init(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.INFINITY_PICKAXE.get(), InfinityUtils.rl("hammer"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.INFINITY_PICKAXE.get(), InfinityUtils.rl("hammer"), (itemStack, world, livingEntity, d) -> {
                 if (itemStack.getItem() instanceof InfinityPickaxeItem) {
                     return itemStack.getOrCreateTagElement("mode").getBoolean("infinity_pickaxe_hammer") ||
-                            itemStack.getOrCreateTag().getBoolean("hammer")? 1.0F : 0.0F;
+                            itemStack.getOrCreateTag().getBoolean("hammer") ? 1.0F : 0.0F;
                 }
                 return 0.0F;
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.INFINITY_BOW.get(), InfinityUtils.rl("tracer"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.INFINITY_BOW.get(), InfinityUtils.rl("tracer"), (itemStack, world, livingEntity, d) -> {
                 if (itemStack.getItem() instanceof InfinityBowItem) {
                     return itemStack.getOrCreateTag().getBoolean("tracer") ? 1.0F : 0.0F;
                 } else {
                     return 0.0F;
                 }
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.INFINITY_BOW.get(), InfinityUtils.rl("pull"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.INFINITY_BOW.get(), InfinityUtils.rl("pull"), (itemStack, world, livingEntity, d) -> {
                 if (livingEntity == null) {
                     return 0.0F;
                 } else {
-                    return CrossbowItem.isCharged(itemStack) ? 0.0F : (float)(itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float)CrossbowItem.getChargeDuration(itemStack);
+                    return CrossbowItem.isCharged(itemStack) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float) CrossbowItem.getChargeDuration(itemStack);
                 }
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.INFINITY_BOW.get(), InfinityUtils.rl("pulling"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.INFINITY_BOW.get(), InfinityUtils.rl("pulling"), (itemStack, world, livingEntity, d) -> {
                 if (!(itemStack.getItem() instanceof InfinityBowItem)) {
                     return 0.0F;
                 } else {
                     return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack && !CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
                 }
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.INFINITY_SHOVEL.get(), InfinityUtils.rl("destroyer"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.INFINITY_SHOVEL.get(), InfinityUtils.rl("destroyer"), (itemStack, world, livingEntity, d) -> {
                 if (itemStack.getItem() instanceof InfinityShovelItem) {
                     return itemStack.getOrCreateTag().getBoolean("destroyer")
                             || itemStack.getOrCreateTagElement("mode").getBoolean("infinity_shovel_destroyer") ? 1.0F : 0.0F;
@@ -94,24 +94,26 @@ public class InfinityHandleClient {
                     return 0.0F;
                 }
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.NEUTRON_BOW.get(), InfinityUtils.rl("pull"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.NEUTRON_BOW.get(), InfinityUtils.rl("pull"), (itemStack, world, livingEntity, d) -> {
                 if (livingEntity == null) {
                     return 0.0F;
                 } else {
-                    return CrossbowItem.isCharged(itemStack) ? 0.0F : (float)(itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float)CrossbowItem.getChargeDuration(itemStack);
+                    return CrossbowItem.isCharged(itemStack) ? 0.0F : (float) (itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float) CrossbowItem.getChargeDuration(itemStack);
                 }
             });
-        });
-        event.enqueueWork(() -> {
-            setPropertyOverride(MoreAvaritiaModItems.NEUTRON_BOW.get(), InfinityUtils.rl("pulling"), (itemStack, world, livingEntity, d) -> {
+            setPropertyOverride(ModItems.NEUTRON_BOW.get(), InfinityUtils.rl("pulling"), (itemStack, world, livingEntity, d) -> {
                 if (!(itemStack.getItem() instanceof NeutronBowItem)) {
                     return 0.0F;
                 } else {
                     return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack && !CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F;
                 }
             });
+            ModLoadingContext.get().registerExtensionPoint(
+                    ConfigScreenHandler.ConfigScreenFactory.class,
+                    () -> new ConfigScreenHandler.ConfigScreenFactory(
+                            (minecraft, screen) -> new ModConfigScreen(screen)
+                    )
+            );
         });
     }
 
@@ -160,8 +162,30 @@ public class InfinityHandleClient {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent e) {
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
         //InfinityUtils.updateItemColor(MoreAvaritiaModItems.INFINITY_GOD_SWORD.get(), 0, 0.3f);
+        Minecraft mc = Minecraft.getInstance();
+        if (event.phase == TickEvent.Phase.END) {
+            if (mc.level == null) {
+                SkillBolt.Manager.clear();
+                return;
+            }
+            if (mc.isPaused()) return;
+            SkillBolt.Manager.tick();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRenderLevelStage(RenderLevelStageEvent event) {
+        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
+            PoseStack poseStack = event.getPoseStack();
+            Vec3 camPos = event.getCamera().getPosition();
+            poseStack.pushPose();
+            if (ModShaders.boltShader != null) {
+                SkillBolt.Manager.renderAll(poseStack, camPos, event.getPartialTick());
+            }
+            poseStack.popPose();
+        }
     }
 
     @SubscribeEvent

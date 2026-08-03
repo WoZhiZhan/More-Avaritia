@@ -5,13 +5,19 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.wzz.more_avaritia.client.IItemType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class InfinityAxeItem extends committee.nova.mods.avaritia.common.item.tools.infinity.InfinityAxeItem {
+public class InfinityAxeItem extends committee.nova.mods.avaritia.common.item.tools.infinity.InfinityAxeItem implements IItemType {
 	public InfinityAxeItem() {
 		super();
+	}
+
+	@Override
+	public Type getItemType() {
+		return Type.TOOL;
 	}
 
 	@Override

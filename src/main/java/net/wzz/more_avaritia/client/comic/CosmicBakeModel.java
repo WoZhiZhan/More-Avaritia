@@ -10,7 +10,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.wzz.more_avaritia.init.ModRenderType;
+import net.wzz.more_avaritia.client.IItemType;
+import net.wzz.more_avaritia.init.ModRenderTypes;
 import net.wzz.more_avaritia.init.ModShaders;
 import net.wzz.more_avaritia.util.InfinityUtils;
 import org.jetbrains.annotations.Nullable;
@@ -29,11 +30,19 @@ public class CosmicBakeModel extends WrappedItemModel {
 
     @Override
     public void renderItem(ItemStack stack, ItemDisplayContext transformType, PoseStack pStack, MultiBufferSource source, int light, int overlay) {
-        if (stack.getItem().getClass().getName().startsWith("net.wzz.more_avaritia.item.tools")) {
-            this.parentState = TransformUtils.DEFAULT_TOOL;
-        } else if (stack.getItem().getClass().getName().startsWith("net.wzz.more_avaritia.item.bow")) {
-            this.parentState = TransformUtils.DEFAULT_BOW;
-        } else this.parentState = TransformUtils.DEFAULT_ITEM;
+        if (stack.getItem() instanceof IItemType type) {
+            IItemType.Type t = type.getItemType();
+            if (t == IItemType.Type.TOOL) {
+                this.parentState = TransformUtils.DEFAULT_TOOL;
+            } else
+            if (t == IItemType.Type.BOW) {
+                this.parentState = TransformUtils.DEFAULT_BOW;
+            } else
+            if (t == IItemType.Type.BLOCK) {
+                this.parentState = TransformUtils.DEFAULT_BLOCK;
+            } else
+                this.parentState = TransformUtils.DEFAULT_ITEM;
+        }
         this.renderWrapped(stack, pStack, source, light, overlay, true);
         if (source instanceof MultiBufferSource.BufferSource bs) {
             bs.endBatch();
@@ -67,7 +76,7 @@ public class CosmicBakeModel extends WrappedItemModel {
         if (ModShaders.cosmicUVs != null) {
             ModShaders.cosmicUVs.set(COSMIC_UVS);
         }
-        final VertexConsumer cons = source.getBuffer(ModRenderType.COSMIC);
+        final VertexConsumer cons = source.getBuffer(ModRenderTypes.COSMIC);
         List<TextureAtlasSprite> atlasSprite = new ArrayList<>();
         for (ResourceLocation res : maskSprite) {
             atlasSprite.add(Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(res));

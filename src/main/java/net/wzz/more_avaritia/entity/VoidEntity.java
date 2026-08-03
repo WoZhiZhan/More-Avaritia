@@ -25,7 +25,7 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 import net.wzz.more_avaritia.init.ModDamageTypes;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
+import net.wzz.more_avaritia.init.ModEntities;
 
 import java.util.List;
 import java.util.Objects;
@@ -73,18 +73,18 @@ public class VoidEntity extends Entity {
   }
 
   public VoidEntity(PlayMessages.SpawnEntity packet, Level world) {
-    this(MoreAvaritiaModEntities.VOID.get(), world);
+    this(ModEntities.VOID.get(), world);
     this.noCulling = true;
     if (level() instanceof ServerLevel)
       this.fakePlayer = FakePlayerFactory.get((ServerLevel)level(), AVARITIA_FAKE_PLAYER);
   }
   
   public VoidEntity(Level level) {
-    this(MoreAvaritiaModEntities.VOID.get(), level);
+    this(ModEntities.VOID.get(), level);
   }
   
   public VoidEntity(Level level, LivingEntity shooter) {
-    this(MoreAvaritiaModEntities.VOID.get(), level);
+    this(ModEntities.VOID.get(), level);
     setUser(shooter);
   }
 

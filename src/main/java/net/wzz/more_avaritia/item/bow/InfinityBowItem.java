@@ -18,17 +18,23 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.wzz.more_avaritia.client.IItemType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class InfinityBowItem extends committee.nova.mods.avaritia.common.item.tools.infinity.InfinityBowItem {
+public class InfinityBowItem extends committee.nova.mods.avaritia.common.item.tools.infinity.InfinityBowItem implements IItemType {
 	public InfinityBowItem() {
 		super();
 	}
 
 	private int shootTimer;
+
+	@Override
+	public Type getItemType() {
+		return Type.BOW;
+	}
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level p_40672_, Player p_40673_, InteractionHand p_40674_) {

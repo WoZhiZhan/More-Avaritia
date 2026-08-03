@@ -1,4 +1,4 @@
-package net.wzz.more_avaritia.entity.model;
+package net.wzz.more_avaritia.client.model;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
@@ -27,7 +27,7 @@ import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
 import net.wzz.more_avaritia.colour.ColorUtils;
 import net.wzz.more_avaritia.init.ModShaders;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.util.InfinityUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -203,10 +203,10 @@ public class InfinityArmorModel extends HumanoidModel<Player> {
         ItemStack chest = e.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack leg = e.getItemBySlot(EquipmentSlot.LEGS);
         ItemStack foot = e.getItemBySlot(EquipmentSlot.FEET);
-        boolean hasHat = hats.getItem() == MoreAvaritiaModItems.INFINITY_HEAD.get();
-        boolean hasChest = chest.getItem() == MoreAvaritiaModItems.INFINITY_Chestplate.get();
-        boolean hasLeg = leg.getItem() == MoreAvaritiaModItems.INFINITY_LEGS.get();
-        boolean hasFoot = foot.getItem() == MoreAvaritiaModItems.INFINITY_BOOTS.get();
+        boolean hasHat = hats.getItem() == ModItems.INFINITY_HEAD.get();
+        boolean hasChest = chest.getItem() == ModItems.INFINITY_Chestplate.get();
+        boolean hasLeg = leg.getItem() == ModItems.INFINITY_LEGS.get();
+        boolean hasFoot = foot.getItem() == ModItems.INFINITY_BOOTS.get();
         if (hasHat && hasChest && hasLeg && hasFoot) {
             modelRender = true;
         }

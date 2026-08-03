@@ -27,7 +27,7 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.util.InfinityUtils;
 import net.wzz.more_avaritia.util.ListUtils;
 
@@ -37,7 +37,7 @@ public class InfinityHandle {
     @SubscribeEvent
     public static void onLeftBlock(PlayerInteractEvent.LeftClickBlock e) {
         Level world = e.getLevel();
-        if (e.getEntity().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_GOD_SWORD.get() || e.getEntity().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_PICKAXE.get() && !e.getEntity().getMainHandItem().getOrCreateTag().getBoolean("hammer")) {
+        if (e.getEntity().getMainHandItem().getItem() == ModItems.INFINITY_GOD_SWORD.get() || e.getEntity().getMainHandItem().getItem() == ModItems.INFINITY_PICKAXE.get() && !e.getEntity().getMainHandItem().getOrCreateTag().getBoolean("hammer")) {
             BlockState blockState = e.getLevel().getBlockState(e.getPos());
             Block block = blockState.getBlock();
             if (block == Blocks.BEDROCK || block == Blocks.END_PORTAL_FRAME || block == Blocks.NETHER_PORTAL || block == Blocks.END_PORTAL
@@ -50,7 +50,7 @@ public class InfinityHandle {
                 e.getLevel().destroyBlock(e.getPos(), false);
             }
         }
-        if (e.getEntity().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_HOE.get()) {
+        if (e.getEntity().getMainHandItem().getItem() == ModItems.INFINITY_HOE.get()) {
             if (world.getBlockState(e.getPos()).getBlock() instanceof BonemealableBlock) {
                 BlockPos _bp = e.getPos();
                 if (BoneMealItem.growCrop(new ItemStack(Items.BONE_MEAL), world, _bp) || BoneMealItem.growWaterPlant(new ItemStack(Items.BONE_MEAL), world, _bp, null)) {
@@ -64,7 +64,7 @@ public class InfinityHandle {
 
     @SubscribeEvent
     public static void onBlockBreaking(BlockEvent.BreakEvent e) {
-        if (e.getPlayer().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_AXE.get()) {
+        if (e.getPlayer().getMainHandItem().getItem() == ModItems.INFINITY_AXE.get()) {
             BlockState blockState = e.getState();
             Block block = blockState.getBlock();
             ItemStack dropStack = new ItemStack(block);
@@ -76,7 +76,7 @@ public class InfinityHandle {
                 }
             }
         }
-        if (e.getPlayer().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_PICKAXE.get()) {
+        if (e.getPlayer().getMainHandItem().getItem() == ModItems.INFINITY_PICKAXE.get()) {
             BlockState blockState = e.getState();
             Block block = blockState.getBlock();
             if (blockState.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
@@ -92,7 +92,7 @@ public class InfinityHandle {
                 }
             }
         }
-        if (e.getPlayer().getMainHandItem().getItem() == MoreAvaritiaModItems.INFINITY_HOE.get()) {
+        if (e.getPlayer().getMainHandItem().getItem() == ModItems.INFINITY_HOE.get()) {
             e.setCanceled(true);
         }
     }

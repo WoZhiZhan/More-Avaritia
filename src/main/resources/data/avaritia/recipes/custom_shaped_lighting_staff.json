@@ -1,0 +1,29 @@
+{
+  "type": "avaritia:shaped_table",
+  "tier": 4,
+  "pattern": [
+    "      AAA",
+    "     AAAA",
+    "    BAAAA",
+    "    BAAA ",
+    "    CBB  ",
+    "   C     ",
+    "  C      ",
+    " C       ",
+    "C        "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:end_crystal"
+    },
+    "B": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "C": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:lighting_staff"
+  }
+}

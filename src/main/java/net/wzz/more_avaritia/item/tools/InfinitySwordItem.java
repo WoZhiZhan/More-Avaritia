@@ -2,6 +2,7 @@ package net.wzz.more_avaritia.item.tools;
 
 import committee.nova.mods.avaritia.common.entity.ImmortalItemEntity;
 import committee.nova.mods.avaritia.init.config.ModConfig;
+import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.init.ModDamageTypes;
 import committee.nova.mods.avaritia.init.registry.ModEntities;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
@@ -25,10 +26,15 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class InfinitySwordItem extends SwordItem {
+public class InfinitySwordItem extends SwordItem implements IItemType {
 
 	public InfinitySwordItem() {
 		super(ModTiers.INFINITY_SWORD, 0, -2.4F, (new Item.Properties()).stacksTo(1).fireResistant());
+	}
+
+	@Override
+	public Type getItemType() {
+		return Type.TOOL;
 	}
 
 	public boolean isFoil(@NotNull ItemStack pStack) {

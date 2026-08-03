@@ -49,5 +49,10 @@
   "item.more_avaritia.infinity_legs": "Infinity Legs §f·§e Change",
   "item.more_avaritia.infinity_boots": "Infinity Boots §f·§e Change",
   "item.infinity_sword_god.text.8": "§7§oShift right click to absorb all dropped items on the map",
-  "resourcepack.more_avaritia.desc": "More Avaritia Old Textures Pack"
+  "resourcepack.more_avaritia.desc": "More Avaritia Old Textures Pack",
+  "item.more_avaritia.lighting_staff": "Lightning Staff",
+  "item.lightning_staff.text.1": "§8§oWield thunder at your fingertips",
+  "item.lightning_staff.text.2": "§8§oHold right-click to unleash devastating lightning beams",
+  "item.lightning_staff.text.3": "§8§oDeals 200 damage per tick and ignites targets",
+  "item.lightning_staff.text.4": "§8§oWhere starry thunder passes, all becomes scorched earth"
 }

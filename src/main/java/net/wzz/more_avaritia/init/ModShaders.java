@@ -8,6 +8,7 @@ import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.wzz.more_avaritia.MoreAvaritiaMod;
 import net.wzz.more_avaritia.client.comic.CCShaderInstance;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class ModShaders {
@@ -20,10 +21,16 @@ public class ModShaders {
     public static Uniform cosmicExternalScale;
     public static Uniform cosmicOpacity;
     public static Uniform cosmicUVs;
+    public static ShaderInstance boltShader;
 
-    public static void onRegisterShaders(RegisterShadersEvent event) {
+    public static void onRegisterShaders(RegisterShadersEvent event) throws IOException {
         COSMIC_SHADER = CCShaderInstance.create(event.getResourceProvider(), new ResourceLocation(MoreAvaritiaMod.MODID, "cosmic"), DefaultVertexFormat.BLOCK);
         event.registerShader(COSMIC_SHADER, ModShaders::cosmicShader);
+        event.registerShader(
+                new ShaderInstance(event.getResourceProvider(),
+                        new ResourceLocation(MoreAvaritiaMod.MODID, "rendertype_bolt"),
+                        DefaultVertexFormat.POSITION_COLOR_TEX),
+                shader -> ModShaders.boltShader = shader);
     }
 
     public static void cosmicShader(ShaderInstance shader) {

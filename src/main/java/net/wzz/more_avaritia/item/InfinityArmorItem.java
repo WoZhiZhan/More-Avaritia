@@ -23,8 +23,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.wzz.more_avaritia.entity.model.InfinityArmorModel;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.client.model.InfinityArmorModel;
+import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.util.InfinityUtils;
 import net.wzz.more_avaritia.util.RainbowText;
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +40,7 @@ public abstract class InfinityArmorItem extends ArmorItem {
 		p_266655_.put(Type.LEGGINGS, 6);
 		p_266655_.put(Type.CHESTPLATE, 8);
 		p_266655_.put(Type.HELMET, 3);
-	}), 1000, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 1.0F, () -> Ingredient.of(MoreAvaritiaModItems.COMPRESSED_INFINITY_INGOT.get()));
+	}), 1000, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 1.0F, () -> Ingredient.of(ModItems.COMPRESSED_INFINITY_INGOT.get()));
 
 	public InfinityArmorItem(Type type) {
 		super(INFINITY_ARMOR,type,(new Item.Properties()).rarity(ModRarities.COSMIC).fireResistant().stacksTo(1)

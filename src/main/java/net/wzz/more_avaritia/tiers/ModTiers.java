@@ -1,33 +1,32 @@
 package net.wzz.more_avaritia.tiers;
 
 import com.google.common.base.Supplier;
-import committee.nova.mods.avaritia.init.registry.ModItems;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.wzz.more_avaritia.init.MoreAvaritiaModItems;
+import net.wzz.more_avaritia.init.ModItems;
 
 public enum ModTiers implements Tier {
     CRYSTAL_PICKAXE(18, 4888, 4888.0F, 6.0F, 0, () -> {
-        return Ingredient.of(ModItems.crystal_matrix_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.crystal_matrix_ingot.get());
     }),
     SKULL_SWORD(18, 4888, 4888.0F, 10.0F, 0, () -> {
-        return Ingredient.of(ModItems.infinity_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.infinity_ingot.get());
     }),
     INFINITY_PICKAXE(32, 9999, 9999.0F, 8.0F, 0, () -> {
-        return Ingredient.of(ModItems.infinity_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.infinity_ingot.get());
     }),
     INFINITY_SWORD(32, 9999, 9999.0F, 10.0F, 0, () -> {
-        return Ingredient.of(MoreAvaritiaModItems.INFINITY_SWORD.get());
+        return Ingredient.of(ModItems.INFINITY_SWORD.get());
     }),
     INFINITY_SHOVEL(32, 9999, 9999.0F, 8.0F, 0, () -> {
-        return Ingredient.of(ModItems.infinity_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.infinity_ingot.get());
     }),
     INFINITY_HOE(32, 9999, 9999.0F, 8.0F, 0, () -> {
-        return Ingredient.of(ModItems.infinity_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.infinity_ingot.get());
     }),
     INFINITY_AXE(32, 9999, 9999.0F, 8.0F, 0, () -> {
-        return Ingredient.of(ModItems.infinity_ingot.get());
+        return Ingredient.of(committee.nova.mods.avaritia.init.registry.ModItems.infinity_ingot.get());
     });
 
     private final int level;

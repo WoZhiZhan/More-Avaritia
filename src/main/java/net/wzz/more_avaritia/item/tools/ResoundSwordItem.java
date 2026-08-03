@@ -13,6 +13,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.entity.VoidSpeedEntity;
 import net.wzz.more_avaritia.tiers.ModTiers;
 import net.wzz.more_avaritia.util.InfinityUtils;
@@ -21,10 +22,15 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ResoundSwordItem extends SwordItem {
+public class ResoundSwordItem extends SwordItem implements IItemType {
 
 	public ResoundSwordItem() {
 		super(ModTiers.INFINITY_SWORD, 89, -1.9F, (new Properties()).stacksTo(1).fireResistant().rarity(Rarity.EPIC));
+	}
+
+	@Override
+	public Type getItemType() {
+		return Type.TOOL;
 	}
 
 	public boolean isFoil(@NotNull ItemStack pStack) {

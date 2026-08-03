@@ -1,6 +1,5 @@
 package net.wzz.more_avaritia.entity;
 
-import committee.nova.mods.avaritia.init.registry.ModEntities;
 import committee.nova.mods.avaritia.init.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,7 +20,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
-import net.wzz.more_avaritia.init.MoreAvaritiaModEntities;
+import net.wzz.more_avaritia.init.ModEntities;
 import org.jetbrains.annotations.NotNull;
 
 public class VoidThrowEntity extends ThrowableItemProjectile {
@@ -32,11 +31,11 @@ public class VoidThrowEntity extends ThrowableItemProjectile {
     }
 
     public VoidThrowEntity(PlayMessages.SpawnEntity packet, Level level) {
-        super(MoreAvaritiaModEntities.VOID_THROW.get(), level);
+        super(ModEntities.VOID_THROW.get(), level);
     }
 
     public VoidThrowEntity(Level level, double x, double y, double z) {
-        this(MoreAvaritiaModEntities.VOID_THROW.get(), level);
+        this(ModEntities.VOID_THROW.get(), level);
         setPos(x, y, z);
     }
 
