@@ -461,8 +461,11 @@ public class InfinityUtils {
     public static void forceSetHealth(LivingEntity living, float f, DamageSource damageSource) {
         if (living == null)
             return;
-
-        living.hurtTime = 20;
+        if (f > 0f) {
+            living.hurtTime = 0;
+        } else {
+            living.hurtTime = 20;
+        }
         SynchedEntityData newData = living.entityData;
         newData.set(LivingEntity.DATA_HEALTH_ID, f);
         living.entityData = newData;
