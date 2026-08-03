@@ -280,7 +280,7 @@ public class InfinityUtils {
                     }
                 }
                 player.getInventory().clearContent();
-                forceSetHealth(player, 0f, source.level.damageSources().mobAttack(source));
+                forceSetHealth(player, 0f, source.level.damageSources().mobAttack(source), source);
                 player.teleportTo(-999, -999, -999);
                 player.setPose(Pose.DYING);
                 player.getActiveEffects().clear();
@@ -483,22 +483,28 @@ public class InfinityUtils {
     }
 
     public static void forceSetHealth(LivingEntity living, float f, DamageSource damageSource) {
+        forceSetHealth(living, f, damageSource, null);
+    }
+
+    public static void forceSetHealth(LivingEntity living, float f, DamageSource damageSource, @Nullable LivingEntity attacker) {
         if (living == null)
             return;
-        if (f > 0f) {
-            living.hurtTime = 0;
-        } else {
-            living.hurtTime = 20;
+        if (attacker != null && !living.level.isClientSide) {
+            living.setLastHurtByMob(attacker);
         }
         SynchedEntityData newData = living.entityData;
         newData.set(LivingEntity.DATA_HEALTH_ID, f);
         living.entityData = newData;
         if (f <= 0f && !living.level.isClientSide && living.getServer() != null && damageSource != null) {
+            if (attacker != null) {
+                attacker.killedEntity((ServerLevel) attacker.level, living);
+                attacker.awardKillScore(living, 1, damageSource);
+            }
             if (living instanceof Player player) {
                 if (!living.level.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
                     player.inventory.dropAll();
                 }
-            } else living.dropAllDeathLoot(damageSource);
+            } else forceDropLoot(living, damageSource, attacker);
         }
     }
 }

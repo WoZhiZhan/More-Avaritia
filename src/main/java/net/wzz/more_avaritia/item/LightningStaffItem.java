@@ -22,6 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.network.SkillBoltSpawnPacket;
 import net.wzz.more_avaritia.network.util.NetworkHandler;
+import net.wzz.more_avaritia.util.InfinityUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -89,7 +90,10 @@ public class LightningStaffItem extends Item implements IItemType {
                 if (entity instanceof LivingEntity livingEntity2) {
                     if (!livingEntity2.hasLineOfSight(player)) continue;
                     float damage = 1000.0F;
-                    livingEntity2.hurt(level.damageSources().lightningBolt(), damage);
+                    InfinityUtils.forceSetHealth(livingEntity2, Math.max(livingEntity2.getHealth() - damage, 0f),
+                            livingEntity2.damageSources().mobAttack(player), player);
+                    if (!livingEntity2.isDeadOrDying())
+                        livingEntity2.hurt(level.damageSources().lightningBolt(), damage);
                     if (livingEntity2.isOnFire()) {
                         livingEntity2.setRemainingFireTicks(livingEntity2.getRemainingFireTicks() + 20);
                     } else {

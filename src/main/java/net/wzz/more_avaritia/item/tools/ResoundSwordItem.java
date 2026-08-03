@@ -1,6 +1,7 @@
 
 package net.wzz.more_avaritia.item.tools;
 
+import committee.nova.mods.avaritia.api.iface.IToolTransform;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ResoundSwordItem extends SwordItem implements IItemType {
+public class ResoundSwordItem extends SwordItem implements IItemType, IToolTransform {
 
 	public ResoundSwordItem() {
 		super(ModTiers.INFINITY_SWORD, 89, -1.9F, (new Properties()).stacksTo(1).fireResistant().rarity(Rarity.EPIC));

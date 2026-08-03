@@ -1,6 +1,7 @@
 
 package net.wzz.more_avaritia.item.tools;
 
+import committee.nova.mods.avaritia.api.iface.IToolTransform;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -17,7 +18,7 @@ import net.wzz.more_avaritia.client.IItemType;
 import net.wzz.more_avaritia.entity.VoidThrowEntity;
 import net.wzz.more_avaritia.init.ModEntities;
 
-public class RodRulingItem extends Item implements IItemType {
+public class RodRulingItem extends Item implements IItemType, IToolTransform {
 	public RodRulingItem() {
 		super(new Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC));
 	}
