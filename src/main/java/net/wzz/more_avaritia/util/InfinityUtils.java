@@ -504,7 +504,7 @@ public class InfinityUtils {
                 if (!living.level.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
                     player.inventory.dropAll();
                 }
-            } else forceDropLoot(living, damageSource, attacker);
+            } else if (living.isDeadOrDying()) forceDropLoot(living, damageSource, attacker);
         }
     }
 }
