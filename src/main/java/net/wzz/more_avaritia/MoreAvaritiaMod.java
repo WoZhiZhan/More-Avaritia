@@ -43,6 +43,7 @@ public class MoreAvaritiaMod {
 		bus.register(ModConfig.class);
 		if (FMLEnvironment.dist == Dist.CLIENT) {
 			bus.addListener(InfinityHandleClient::init);
+			bus.addListener(InfinityHandleClient::addPlayerLayer);
 		}
 		ModBlocks.REGISTRY.register(bus);
 		ModEntities.REGISTRY.register(bus);

@@ -64,6 +64,8 @@ public abstract class InfinityArmorItem extends ArmorItem {
 		if (p_41406_ instanceof Player player) {
 			if (InfinityUtils.hasInfinityArmor(player)) {
 				player.clearFire();
+				player.hurtTime = 0;
+				player.deathTime = 0;
 				player.getPersistentData().putBoolean("isInfinityArmorFly", true);
 			}
 		}

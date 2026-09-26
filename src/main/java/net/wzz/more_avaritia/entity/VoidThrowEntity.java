@@ -39,6 +39,11 @@ public class VoidThrowEntity extends ThrowableItemProjectile {
         setPos(x, y, z);
     }
 
+    @Override
+    public void defineSynchedData() {
+        super.defineSynchedData();
+    }
+
     @NotNull
     protected Item getDefaultItem() {
         return ModItems.endest_pearl.get();

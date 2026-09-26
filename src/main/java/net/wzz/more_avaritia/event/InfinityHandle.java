@@ -111,11 +111,10 @@ public class InfinityHandle {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onLivingAttack(LivingAttackEvent e) {
-        if (e.getEntity() instanceof Player player)
-            if (InfinityUtils.hasInfinityArmor(player))
+        if (e.getSource() != null && e.getEntity() instanceof Player player
+                && e.getSource().getEntity() instanceof LivingEntity living && living != player) {
+            if (InfinityUtils.hasInfinityArmor(player) && !e.getSource().is(ModDamageTypes.INFINITY)) {
                 e.setCanceled(true);
-        if (e.getSource() != null && e.getEntity() instanceof Player player && e.getSource().getEntity() instanceof LivingEntity living && living != player) {
-            if (InfinityUtils.hasInfinityArmor(player)) {
                 living.hurt(player.damageSources().source(ModDamageTypes.INFINITY, player, e.getEntity()), Float.POSITIVE_INFINITY);
             }
         }

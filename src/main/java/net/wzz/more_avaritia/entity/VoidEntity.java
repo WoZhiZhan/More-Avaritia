@@ -103,18 +103,18 @@ public class VoidEntity extends Entity {
   private void setAge(int age) {
     this.entityData.set(AGE_PARAMETER, Integer.valueOf(age));
   }
-  
-  protected void defineSynchedData() {
+
+  public void defineSynchedData() {
     this.entityData.define(AGE_PARAMETER, Integer.valueOf(0));
   }
-  
-  protected void readAdditionalSaveData(CompoundTag tag) {
+
+  public void readAdditionalSaveData(CompoundTag tag) {
     setAge(tag.getInt("age"));
     if (level() instanceof ServerLevel)
       this.fakePlayer = FakePlayerFactory.get((ServerLevel)level(), AVARITIA_FAKE_PLAYER);
   }
   
-  protected void addAdditionalSaveData(CompoundTag tag) {
+  public void addAdditionalSaveData(CompoundTag tag) {
     tag.putInt("age", getAge());
   }
   

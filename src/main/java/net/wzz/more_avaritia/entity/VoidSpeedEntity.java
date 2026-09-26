@@ -92,16 +92,16 @@ public class VoidSpeedEntity extends Entity {
   private void setAge(int age) {
     this.entityData.set(AGE_PARAMETER, Integer.valueOf(age));
   }
-  
-  protected void defineSynchedData() {
+
+  public void defineSynchedData() {
     this.entityData.define(AGE_PARAMETER, Integer.valueOf(0));
   }
-  
-  protected void readAdditionalSaveData(CompoundTag tag) {
+
+  public void readAdditionalSaveData(CompoundTag tag) {
     setAge(tag.getInt("age"));
   }
-  
-  protected void addAdditionalSaveData(CompoundTag tag) {
+
+  public void addAdditionalSaveData(CompoundTag tag) {
     tag.putInt("age", getAge());
   }
   
