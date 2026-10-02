@@ -49,6 +49,7 @@ public class ModTabs {
 			tabData.accept(ModItems.INFINITY_LEGS.get());
 			tabData.accept(ModItems.INFINITY_BOOTS.get());
 			tabData.accept(ModItems.LIGHTING_STAFF.get());
+			tabData.accept(ModItems.INFINITY_ENERGY.get());
 		}
 	}
 }

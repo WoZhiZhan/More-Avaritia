@@ -158,7 +158,7 @@ public class VoidEntity extends Entity {
       return;
     }
     double size = getVoidScale(age) * 5D - 0.2D;
-    int range = (int)(size * suckRange);
+    int range = (int)Math.min(size * suckRange, suckRange);
     AABB axisAlignedBB = new AABB(position.offset(-range, -range, -range), position.offset(range, range, range));
     List<Entity> sucked = level().getEntitiesOfClass(Entity.class, axisAlignedBB, SUCK_PREDICATE);
     double radius = getVoidScale(age) * 5D;

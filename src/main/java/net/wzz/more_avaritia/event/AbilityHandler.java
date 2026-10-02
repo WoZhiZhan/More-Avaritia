@@ -1,7 +1,6 @@
 package net.wzz.more_avaritia.event;
 
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.HashSet;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -234,10 +233,10 @@ public class AbilityHandler
     }
     
     static {
-        entitiesWithHelmets = new HashSet<String>();
-        entitiesWithLeggings = new HashSet<String>();
-        entitiesWithBoots = new HashSet<String>();
-        entitiesWithFlight = new ConcurrentHashMap<String, AbilityHandler.FlightInfo>();
+        entitiesWithHelmets = ConcurrentHashMap.newKeySet();
+        entitiesWithLeggings = ConcurrentHashMap.newKeySet();
+        entitiesWithBoots = ConcurrentHashMap.newKeySet();
+        entitiesWithFlight = new ConcurrentHashMap<>();
     }
 
     public static class FlightInfo {

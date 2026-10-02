@@ -22,6 +22,11 @@ public class ModShaders {
     public static Uniform cosmicOpacity;
     public static Uniform cosmicUVs;
     public static ShaderInstance boltShader;
+    public static CCShaderInstance STAR_LIGHTNING_SHADER;
+    public static Uniform starLightningTime;
+    public static CCShaderInstance INFINITY_ENERGY_SHADER;
+    public static Uniform infinityEnergyTime;
+    public static CCShaderInstance INFINITY_ENERGY_GUI_SHADER;
 
     public static void onRegisterShaders(RegisterShadersEvent event) throws IOException {
         COSMIC_SHADER = CCShaderInstance.create(event.getResourceProvider(), new ResourceLocation(MoreAvaritiaMod.MODID, "cosmic"), DefaultVertexFormat.BLOCK);
@@ -31,6 +36,32 @@ public class ModShaders {
                         new ResourceLocation(MoreAvaritiaMod.MODID, "rendertype_bolt"),
                         DefaultVertexFormat.POSITION_COLOR_TEX),
                 shader -> ModShaders.boltShader = shader);
+        STAR_LIGHTNING_SHADER = CCShaderInstance.create(event.getResourceProvider(), new ResourceLocation(MoreAvaritiaMod.MODID, "star_lightning"), DefaultVertexFormat.POSITION_COLOR);
+        event.registerShader(STAR_LIGHTNING_SHADER, ModShaders::starLightningShader);
+        INFINITY_ENERGY_SHADER = CCShaderInstance.create(event.getResourceProvider(), new ResourceLocation(MoreAvaritiaMod.MODID, "infinity_energy"), DefaultVertexFormat.POSITION_COLOR_TEX);
+        event.registerShader(INFINITY_ENERGY_SHADER, ModShaders::infinityEnergyShader);
+        INFINITY_ENERGY_GUI_SHADER = CCShaderInstance.create(event.getResourceProvider(), new ResourceLocation(MoreAvaritiaMod.MODID, "infinity_energy_gui"), DefaultVertexFormat.POSITION_COLOR_NORMAL);
+        event.registerShader(INFINITY_ENERGY_GUI_SHADER, ModShaders::infinityEnergyGuiShader);
+    }
+
+    public static void starLightningShader(ShaderInstance shader) {
+        STAR_LIGHTNING_SHADER = (CCShaderInstance) shader;
+        starLightningTime = STAR_LIGHTNING_SHADER.getUniform("time");
+        if (starLightningTime != null) {
+            STAR_LIGHTNING_SHADER.onApply(() -> starLightningTime.set((float) renderTime + renderFrame));
+        }
+    }
+
+    public static void infinityEnergyShader(ShaderInstance shader) {
+        INFINITY_ENERGY_SHADER = (CCShaderInstance) shader;
+        infinityEnergyTime = INFINITY_ENERGY_SHADER.getUniform("time");
+        if (infinityEnergyTime != null) {
+            INFINITY_ENERGY_SHADER.onApply(() -> infinityEnergyTime.set((float) renderTime + renderFrame));
+        }
+    }
+
+    public static void infinityEnergyGuiShader(ShaderInstance shader) {
+        INFINITY_ENERGY_GUI_SHADER = (CCShaderInstance) shader;
     }
 
     public static void cosmicShader(ShaderInstance shader) {

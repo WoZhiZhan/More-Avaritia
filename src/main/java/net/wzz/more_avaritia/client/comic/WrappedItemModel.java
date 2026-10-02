@@ -47,7 +47,8 @@ public abstract class WrappedItemModel implements PerspectiveModel {
             @Override
             public BakedModel resolve(final @NotNull BakedModel originalModel, final @NotNull ItemStack stack, final ClientLevel world, final LivingEntity entity, final int seed) {
                 WrappedItemModel.this.entity = entity;
-                WrappedItemModel.this.world = ((world == null) ? ((entity == null) ? null : ((ClientLevel) entity.level())) : null);
+                WrappedItemModel.this.world = world != null ? world
+                        : (entity != null && entity.level() instanceof ClientLevel clientLevel ? clientLevel : null);
                 if (WrappedItemModel.this.isCosmic()) {
                     return WrappedItemModel.this.wrapped.getOverrides().resolve(originalModel, stack, world, entity, seed);
                 }

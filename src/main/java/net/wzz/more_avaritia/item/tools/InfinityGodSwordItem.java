@@ -12,11 +12,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -68,12 +70,12 @@ public class InfinityGodSwordItem extends InfinitySwordItem implements IItemType
 
 	@Override
 	public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-		if (entity instanceof Player player) {
+		if (!entity.level().isClientSide && entity instanceof Player player) {
+			Vec3 eyePos = entity.getEyePosition(1.0F);
+			Vec3 look = entity.getViewVector(1.0F);
 			for (int i = 1; i <= 256; i++) {
-				final Vec3 vec3 = new Vec3(
-						(entity.level().clip(new ClipContext(entity.getEyePosition(i), entity.getEyePosition(i).add(entity.getViewVector(i).scale(i)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX()),
-						(entity.level().clip(new ClipContext(entity.getEyePosition(i), entity.getEyePosition(i).add(entity.getViewVector(i).scale(i)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY()),
-						(entity.level().clip(new ClipContext(entity.getEyePosition(i), entity.getEyePosition(i).add(entity.getViewVector(i).scale(i)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()));
+				BlockPos hitPos = entity.level().clip(new ClipContext(eyePos, eyePos.add(look.scale(i)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos();
+				final Vec3 vec3 = new Vec3(hitPos.getX(), hitPos.getY(), hitPos.getZ());
 				List<Entity> entities = entity.level().getEntitiesOfClass(Entity.class, new AABB(vec3, vec3).inflate(1.2d), e -> true).stream().sorted(Comparator.comparingDouble(e -> e.distanceToSqr(vec3)))
 						.toList();
 				for (Entity e : entities) {
@@ -122,6 +124,9 @@ public class InfinityGodSwordItem extends InfinitySwordItem implements IItemType
 				player.getPersistentData().putBoolean("isGodInfinity", false);
 				player.onUpdateAbilities();
 			}
+			if (!p_41405_.isClientSide) {
+				InfinityUtils.updateGodSwordGlow(player, player.isUsingItem() && player.getUseItem() == p_41404_);
+			}
 		}
 	}
 
@@ -129,9 +134,9 @@ public class InfinityGodSwordItem extends InfinitySwordItem implements IItemType
 	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
 		if (!entity.level().isClientSide && entity instanceof Player victim) {
 			if (!victim.isCreative() && !victim.isDeadOrDying() && victim.getHealth() > 0.0F && !InfinityUtils.isInfinite(victim)) {
-				victim.getCombatTracker().recordDamage(player.damageSources().source(ModDamageTypes.INFINITY, player, victim), victim.getHealth());
+				victim.getCombatTracker().recordDamage(player.damageSources().source(ModDamageTypes.INFINITY, player, player), victim.getHealth());
 				victim.setHealth(0.0F);
-				victim.die(player.damageSources().source(ModDamageTypes.INFINITY, player, victim));
+				victim.die(player.damageSources().source(ModDamageTypes.INFINITY, player, player));
 				return true;
 			}
 		}
@@ -143,20 +148,47 @@ public class InfinityGodSwordItem extends InfinitySwordItem implements IItemType
 	}
 
 	@Override
+	public @NotNull UseAnim getUseAnimation(@NotNull ItemStack stack) {
+		return UseAnim.BLOCK;
+	}
+
+	@Override
+	public int getUseDuration(@NotNull ItemStack stack) {
+		return 72000;
+	}
+
+	@Override
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand hand) {
 		ItemStack heldItem = player.getItemInHand(hand);
-		if (!player.isShiftKeyDown())
-			InfinityUtils.aoeAttack(player, 100f, Float.POSITIVE_INFINITY, true, ModConfig.isSwordAttackLightning.get(), true);
-		else  {
-			InfinityUtils.aoeAttack(player, 200f, Float.POSITIVE_INFINITY, true, true, true);
-			AABB aabb = player.getBoundingBox().deflate(400);
-			List<Entity> toAttack = player.level().getEntities(player, aabb);
-			toAttack.stream().filter((entity) -> entity instanceof ItemEntity).forEach((entity) -> {
-				entity.setPos(player.getX(), player.getY() + 1, player.getZ());
-			});
+		player.startUsingItem(hand);
+		return InteractionResultHolder.consume(heldItem);
+	}
+
+	@Override
+	public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity, int timeLeft) {
+		if (!(entity instanceof Player player)) {
+			return;
 		}
-		level.playSound(player, player.getOnPos(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0F, 5.0F);
-		return InteractionResultHolder.success(heldItem);
+		double range = net.wzz.more_avaritia.config.ModConfig.GOD_SWORD_RANGE.get();
+		double angle = net.wzz.more_avaritia.config.ModConfig.GOD_SWORD_ANGLE.get();
+		if (!player.isShiftKeyDown()) {
+			InfinityUtils.aoeAttackFront(player, range, angle, Float.POSITIVE_INFINITY, true, ModConfig.isSwordAttackLightning.get(), true);
+		} else {
+			List<Entity> front = InfinityUtils.getFrontEntities(player, range, angle);
+			InfinityUtils.aoeAttackFront(player, range, angle, Float.POSITIVE_INFINITY, true, true, true);
+			front.stream().filter((e) -> e instanceof ItemEntity).forEach((e) -> {
+				e.setPos(player.getX(), player.getY() + 1, player.getZ());
+			});
+			if (!level.isClientSide) {
+				front.stream().filter((e) -> e instanceof ExperienceOrb).forEach((e) -> {
+					player.giveExperiencePoints(((ExperienceOrb) e).getValue());
+					e.discard();
+				});
+			}
+		}
+		if (!level.isClientSide) {
+			level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0F, 5.0F);
+		}
 	}
 
 	@OnlyIn(Dist.CLIENT)

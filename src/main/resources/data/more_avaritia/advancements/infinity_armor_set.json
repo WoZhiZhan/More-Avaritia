@@ -1,0 +1,54 @@
+{
+  "criteria": {
+    "main": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "more_avaritia:infinity_head"
+            ]
+          },
+          {
+            "items": [
+              "more_avaritia:infinity_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "more_avaritia:infinity_legs"
+            ]
+          },
+          {
+            "items": [
+              "more_avaritia:infinity_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "more_avaritia:textures/block/compressed_infinity_block.png",
+    "description": {
+      "translate": "advancements.more_avaritia.infinity_armor_set.desc"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "more_avaritia:infinity_chestplate"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.more_avaritia.infinity_armor_set.title",
+      "color": "light_purple"
+    }
+  },
+  "requirements": [
+    [
+      "main"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

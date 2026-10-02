@@ -39,17 +39,15 @@ public class ResoundSwordItem extends SwordItem implements IItemType, IToolTrans
 	}
 
 	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
-		if (entity instanceof LivingEntity living) {
+		if (entity instanceof LivingEntity living && !player.level().isClientSide) {
 			living.hurt(player.damageSources().playerAttack(player), 100.0f);
 			InfinityUtils.sweepAttackNormal(player.level(), player, living, 20);
 			InfinityUtils.playSound(player.level(), SoundEvents.TRIDENT_THROW, player);
 			BlockPos pos = entity.getOnPos();
-			if (!(player.level()).isClientSide) {
-				VoidSpeedEntity ent = new VoidSpeedEntity(player.level(), player);
-				ent.setUser(player);
-				ent.setPos(pos.getX(), pos.getY(), pos.getZ());
-				player.level().addFreshEntity(ent);
-			}
+			VoidSpeedEntity ent = new VoidSpeedEntity(player.level(), player);
+			ent.setUser(player);
+			ent.setPos(pos.getX(), pos.getY(), pos.getZ());
+			player.level().addFreshEntity(ent);
 		}
 		return false;
 	}

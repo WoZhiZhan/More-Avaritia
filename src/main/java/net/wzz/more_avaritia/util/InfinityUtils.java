@@ -1,6 +1,9 @@
 package net.wzz.more_avaritia.util;
 
 import committee.nova.mods.avaritia.common.item.tools.InfinityArmorItem;
+import net.minecraft.ChatFormatting;
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.entity.boss.enderdragon.phases.EnderDragonPhase;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -56,6 +59,9 @@ import java.util.*;
 
 public class InfinityUtils {
     public static boolean isInfinite(LivingEntity player) {
+        if (player instanceof Player p && hasInfinityArmor(p)) {
+            return true;
+        }
         for(EquipmentSlot slot : EquipmentSlot.values()) {
             if (slot.getType() == EquipmentSlot.Type.ARMOR) {
                 ItemStack stack = player.getItemBySlot(slot);
@@ -71,41 +77,80 @@ public class InfinityUtils {
     public static void aoeAttack(Player player, float range, float damage, boolean hurtAnimal, boolean lightOn, boolean ms) {
         if (!player.level().isClientSide) {
             AABB aabb = player.getBoundingBox().deflate(range);
-            List<Entity> toAttack = player.level().getEntities(player, aabb);
-            DamageSource src = player.damageSources().source(ModDamageTypes.INFINITY, player, player);
-            toAttack.stream().filter((entity) -> entity instanceof Mob).forEach((entity) -> {
-                Mob mob = (Mob) entity;
-                StarLightingEntity lightningbolt = new StarLightingEntity(ModEntities.STAR_LIGHTING.get(), player.level());
-                if (lightOn) {
-                    lightningbolt.moveTo(Vec3.atBottomCenterOf(entity.blockPosition()));
-                    player.level().addFreshEntity(lightningbolt);
-                }
-                label38:
-                {
-                    if (mob instanceof Animal animal) {
-                        if (hurtAnimal) {
-                            animal.hurt(src, damage);
-                            if (noDie(animal))
-                                superAttack(animal);
-                            break label38;
-                        }
-                    }
-                    if (!(mob instanceof Animal)) {
-                        if (ms) {
-                            killEntity(mob, player);
-                        } else {
-                            mob.setHealth(0.0F);
-                            mob.die(player.damageSources().source(ModDamageTypes.INFINITY, player, mob));
-                            if (noDie(mob))
-                                superAttack(mob);
-                        }
-                    }
-                }
-            });
+            applyAoeAttack(player, player.level().getEntities(player, aabb), damage, hurtAnimal, lightOn, ms);
         }
     }
 
+    /**
+     * 身前 180° 半球、最远 range 格的范围攻击
+     */
+    public static void aoeAttackFront(Player player, double range, double angle, float damage, boolean hurtAnimal, boolean lightOn, boolean ms) {
+        if (!player.level().isClientSide) {
+            applyAoeAttack(player, getFrontEntities(player, range, angle), damage, hurtAnimal, lightOn, ms);
+        }
+    }
+
+    private static void applyAoeAttack(Player player, List<? extends Entity> toAttack, float damage, boolean hurtAnimal, boolean lightOn, boolean ms) {
+        DamageSource src = player.damageSources().source(ModDamageTypes.INFINITY, player, player);
+        toAttack.stream().filter((entity) -> entity instanceof Mob).forEach((entity) -> {
+            Mob mob = (Mob) entity;
+            StarLightingEntity lightningbolt = new StarLightingEntity(ModEntities.STAR_LIGHTING.get(), player.level());
+            if (lightOn) {
+                lightningbolt.moveTo(Vec3.atBottomCenterOf(entity.blockPosition()));
+                player.level().addFreshEntity(lightningbolt);
+            }
+            label38:
+            {
+                if (mob instanceof Animal animal) {
+                    if (hurtAnimal) {
+                        animal.hurt(src, damage);
+                        if (noDie(animal))
+                            superAttack(animal);
+                        break label38;
+                    }
+                }
+                if (!(mob instanceof Animal)) {
+                    if (ms) {
+                        killEntity(mob, player);
+                    } else {
+                        mob.setHealth(0.0F);
+                        mob.die(player.damageSources().source(ModDamageTypes.INFINITY, player, player));
+                        if (noDie(mob))
+                            superAttack(mob);
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * 玩家视线前方锥形（默认 180° 半球）、最远 range 格内的实体（不含玩家自己）
+     */
+    public static List<Entity> getFrontEntities(Player player, double range) {
+        return getFrontEntities(player, range, 180.0D);
+    }
+
+    public static List<Entity> getFrontEntities(Player player, double range, double angle) {
+        Vec3 look = player.getLookAngle().normalize();
+        Vec3 eye = player.getEyePosition();
+        double minDot = Math.cos(Math.toRadians(Math.max(1.0D, Math.min(angle, 360.0D)) * 0.5D));
+        AABB box = player.getBoundingBox().inflate(range);
+        List<Entity> result = new ArrayList<>();
+        for (Entity entity : player.level().getEntities(player, box)) {
+            if (!entity.isAlive()) continue;
+            Vec3 to = entity.position().add(0.0D, entity.getBbHeight() * 0.5D, 0.0D).subtract(eye);
+            double dist = to.length();
+            if (dist > range || dist < 1.0E-4D) continue;
+            if (to.normalize().dot(look) < minDot) continue;
+            result.add(entity);
+        }
+        return result;
+    }
+
     public static void superAttack(LivingEntity living) {
+        if (living instanceof Player) {
+            return;
+        }
         if (!noDie(living))
             return;
         living.setHealth(0);
@@ -156,10 +201,12 @@ public class InfinityUtils {
                         entityReachSq = Mth.square(player.getEntityReach());
                     } while(player.isAlliedTo(livingentity));
                 } while(livingentity instanceof ArmorStand && ((ArmorStand)livingentity).isMarker());
-                if (player.distanceToSqr(livingentity) < entityReachSq) {
+                if (livingentity != player && player.distanceToSqr(livingentity) < entityReachSq) {
                     livingentity.knockback(0.6000000238418579, (double)Mth.sin(player.getYRot() * 0.017453292F), (double)(-Mth.cos(player.getYRot() * 0.017453292F)));
-                    victim.setHealth(0.0F);
-                    victim.die(player.damageSources().source(ModDamageTypes.INFINITY, player, victim));
+                    if (!level.isClientSide && !livingentity.isDeadOrDying()) {
+                        livingentity.setHealth(0.0F);
+                        livingentity.die(player.damageSources().source(ModDamageTypes.INFINITY, player, player));
+                    }
                 }
             }
         }
@@ -266,26 +313,36 @@ public class InfinityUtils {
                 return;
             }
         }
+        if (living.isDeadOrDying()) {
+            return;
+        }
         if (living instanceof Player player) {
-            if (!ModConfig.KILL_PLAYERS.get()) return;
-            if (!InfinityUtils.hasInfinityArmor(player) && !InfinityUtils.hasItem(player, ModItems.INFINITY_GOD_SWORD.get())) {
-                List<ItemStack> allItems = new ArrayList<>();
-                allItems.addAll(player.getInventory().items);
-                allItems.addAll(player.getInventory().armor);
-                allItems.addAll(player.getInventory().offhand);
-                for (ItemStack stack : allItems) {
-                    if (!stack.isEmpty()) {
-                        ItemStack dropStack = stack.copy();
-                        player.drop(dropStack, true, false);
-                    }
-                }
-                player.getInventory().clearContent();
-                forceSetHealth(player, 0f, source.level.damageSources().mobAttack(source), source);
-                player.teleportTo(-999, -999, -999);
-                player.setPose(Pose.DYING);
-                player.getActiveEffects().clear();
+            if (living.level.isClientSide) {
                 return;
             }
+            if (!ModConfig.KILL_PLAYERS.get()) return;
+            if (InfinityUtils.isInfinite(player) || InfinityUtils.hasItem(player, ModItems.INFINITY_GOD_SWORD.get())) {
+                return;
+            }
+            List<ItemStack> allItems = new ArrayList<>();
+            allItems.addAll(player.getInventory().items);
+            allItems.addAll(player.getInventory().armor);
+            allItems.addAll(player.getInventory().offhand);
+            for (ItemStack stack : allItems) {
+                if (!stack.isEmpty()) {
+                    ItemStack dropStack = stack.copy();
+                    player.drop(dropStack, true, false);
+                }
+            }
+            player.getInventory().clearContent();
+            DamageSource killSource = source != null
+                    ? source.level.damageSources().mobAttack(source)
+                    : player.damageSources().generic();
+            forceSetHealth(player, 0f, killSource, source);
+            player.teleportTo(-999, -999, -999);
+            player.setPose(Pose.DYING);
+            player.getActiveEffects().clear();
+            return;
         }
         spawnParticles(living, ParticleTypes.POOF, 10, 0.02d);
         if (!living.level.isClientSide) {
@@ -304,11 +361,6 @@ public class InfinityUtils {
             return;
         }
         if (living.level instanceof ServerLevel serverLevel) {
-            CustomBossEvents bossEvents = serverLevel.getServer().getCustomBossEvents();
-            for (CustomBossEvent event : bossEvents.getEvents()) {
-                event.removeAllPlayers();
-                event.setVisible(false);
-            }
             serverLevel.getChunkSource().removeEntity(living);
             serverLevel.entityManager.visibleEntityStorage.remove(living);
             serverLevel.entityManager.knownUuids.remove(living.getUUID());
@@ -336,16 +388,6 @@ public class InfinityUtils {
                     }
                 }
             };
-            ChunkEntities<?> chunkentities;
-            while((chunkentities = serverLevel.entityManager.loadingInbox.poll()) != null) {
-                ChunkEntities<?> finalChunkentities = chunkentities;
-                chunkentities.getEntities().forEach((p_157593_) -> {
-                    if (p_157593_ instanceof Entity e) {
-                        e.discard();
-                        serverLevel.entityManager.loadingInbox.remove(finalChunkentities);
-                    }
-                });
-            }
             serverLevel.getScoreboard().entityRemoved(living);
             living.gameEvent(GameEvent.ENTITY_DIE);
             EntitySection section = serverLevel.entityManager.sectionStorage.getSection(SectionPos.asLong(living.blockPosition()));
@@ -355,7 +397,7 @@ public class InfinityUtils {
             }
             NetworkHandler.sendToAllPlayers(new ClientEntityRemovePacket(living.getId()));
         }
-        if (living.level instanceof ClientLevel clientLevel) {
+        else if (living.level instanceof ClientLevel clientLevel) {
             clientLevel.tickingEntities.remove(living);
             if (living.isMultipartEntity())
                 for (PartEntity<?> part : living.getParts())
@@ -439,7 +481,6 @@ public class InfinityUtils {
         if (!ForgeHooks.onLivingDrops(living, source, capturedDrops, lootingLevel, killedByPlayer)) {
             forEachServerLevelAddFreshEntity(capturedDrops, serverLevel);
         }
-        living.dropAllDeathLoot(source);
     }
 
     public static void forEachServerLevelAddFreshEntity(
@@ -505,6 +546,103 @@ public class InfinityUtils {
                     player.inventory.dropAll();
                 }
             } else if (living.isDeadOrDying()) forceDropLoot(living, damageSource, attacker);
+        }
+    }
+
+    private static final ChatFormatting[] GLOW_COLORS = {
+            ChatFormatting.RED, ChatFormatting.GOLD, ChatFormatting.YELLOW, ChatFormatting.GREEN,
+            ChatFormatting.AQUA, ChatFormatting.BLUE, ChatFormatting.LIGHT_PURPLE, ChatFormatting.DARK_PURPLE
+    };
+
+    private static final Map<Player, Set<LivingEntity>> GOD_SWORD_GLOW = new WeakHashMap<>();
+    private static int glowColorShift;
+    private static long lastGlowColorTick = -1000L;
+
+    /**
+     * 最终幻想剑蓄力期间：身前被选中的生物彩色发光（颜色随时间流动）；停止蓄力时清除
+     */
+    public static void updateGodSwordGlow(Player player, boolean charging) {
+        Set<LivingEntity> previous = GOD_SWORD_GLOW.computeIfAbsent(player, k -> new HashSet<>());
+        if (!charging) {
+            clearGodSwordGlow(player);
+            return;
+        }
+        double range = net.wzz.more_avaritia.config.ModConfig.GOD_SWORD_RANGE.get();
+        double angle = net.wzz.more_avaritia.config.ModConfig.GOD_SWORD_ANGLE.get();
+        Set<LivingEntity> current = new HashSet<>();
+        for (Entity entity : getFrontEntities(player, range, angle)) {
+            if (entity instanceof LivingEntity living && !(living instanceof Player) && living.isAlive()) {
+                current.add(living);
+            }
+        }
+        Iterator<LivingEntity> iterator = previous.iterator();
+        while (iterator.hasNext()) {
+            LivingEntity living = iterator.next();
+            if (!current.contains(living)) {
+                setGodSwordGlow(player, living, false);
+                iterator.remove();
+            }
+        }
+        for (LivingEntity living : current) {
+            if (previous.add(living)) {
+                setGodSwordGlow(player, living, true);
+            }
+        }
+        if (player.level() instanceof ServerLevel serverLevel) {
+            cycleGlowColors(serverLevel);
+        }
+    }
+
+    public static void clearGodSwordGlow(Player player) {
+        Set<LivingEntity> previous = GOD_SWORD_GLOW.remove(player);
+        if (previous == null)
+            return;
+        for (LivingEntity living : previous) {
+            setGodSwordGlow(player, living, false);
+        }
+    }
+
+    /** 动态彩色：每 4 tick 轮转一次各发光队伍的颜色 */
+    private static void cycleGlowColors(ServerLevel serverLevel) {
+        long time = serverLevel.getGameTime();
+        if (time - lastGlowColorTick < 4L)
+            return;
+        lastGlowColorTick = time;
+        glowColorShift++;
+        Scoreboard scoreboard = serverLevel.getScoreboard();
+        for (int i = 0; i < GLOW_COLORS.length; i++) {
+            PlayerTeam team = scoreboard.getPlayerTeam(glowTeamName(i));
+            if (team != null) {
+                team.setColor(GLOW_COLORS[Math.floorMod(i + glowColorShift, GLOW_COLORS.length)]);
+            }
+        }
+    }
+
+    private static String glowTeamName(int index) {
+        return "more_avaritia_glow_" + index;
+    }
+
+    private static void setGodSwordGlow(Player player, LivingEntity living, boolean glow) {
+        living.setGlowingTag(glow);
+        if (!(player.level() instanceof ServerLevel serverLevel))
+            return;
+        Scoreboard scoreboard = serverLevel.getScoreboard();
+        String name = living.getScoreboardName();
+        if (glow) {
+            int index = Math.floorMod(living.getUUID().hashCode(), GLOW_COLORS.length);
+            String teamName = glowTeamName(index);
+            PlayerTeam team = scoreboard.getPlayerTeam(teamName);
+            if (team == null) {
+                team = scoreboard.addPlayerTeam(teamName);
+                team.setColor(GLOW_COLORS[Math.floorMod(index + glowColorShift, GLOW_COLORS.length)]);
+                team.setAllowFriendlyFire(true);
+            }
+            scoreboard.addPlayerToTeam(name, team);
+        } else {
+            PlayerTeam team = scoreboard.getPlayersTeam(name);
+            if (team != null && team.getName().startsWith("more_avaritia_glow_")) {
+                scoreboard.removePlayerFromTeam(name, team);
+            }
         }
     }
 }

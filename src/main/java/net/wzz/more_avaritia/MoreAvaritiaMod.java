@@ -9,10 +9,12 @@ import net.wzz.more_avaritia.init.ModEntities;
 import net.wzz.more_avaritia.init.ModTabs;
 import net.wzz.more_avaritia.init.ModItems;
 import net.wzz.more_avaritia.init.ModBlocks;
+import net.wzz.more_avaritia.init.ModRecipes;
 
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -40,6 +42,7 @@ public class MoreAvaritiaMod {
 	public MoreAvaritiaMod() {
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		ModLoadingContext.get().registerConfig(net.minecraftforge.fml.config.ModConfig.Type.COMMON, ModConfig.CONFIG_SPEC);
 		bus.register(ModConfig.class);
 		if (FMLEnvironment.dist == Dist.CLIENT) {
 			bus.addListener(InfinityHandleClient::init);
@@ -49,6 +52,7 @@ public class MoreAvaritiaMod {
 		ModEntities.REGISTRY.register(bus);
 		ModItems.REGISTRY.register(bus);
 		ModTabs.REGISTRY.register(bus);
+		ModRecipes.RECIPE_SERIALIZERS.register(bus);
 
 	}
 

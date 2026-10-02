@@ -1,104 +1,94 @@
-
 package net.wzz.more_avaritia.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LightningBoltRenderer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LightningBolt;
+import net.wzz.more_avaritia.init.ModRenderTypes;
 import org.joml.Matrix4f;
 
-import java.util.Random;
-
+/**
+ * 星空之雷：完全沿用原版 MC 闪电的几何（竖直折线 + 4 层分支），
+ * 只把渲染类型换成 star_lightning 着色器，由 shader 生成星云底色、星流与闪烁星点。
+ */
 public class StarLightingRenderer extends LightningBoltRenderer {
-	public StarLightingRenderer(EntityRendererProvider.Context context) {
-		super(context);
-	}
-	public void render(LightningBolt p_115266_, float p_115267_, float p_115268_, PoseStack p_115269_, MultiBufferSource p_115270_, int p_115271_) {
-		float[] afloat = new float[8];
-		float[] afloat1 = new float[8];
-		float f = 0.0F;
-		float f1 = 0.0F;
-		RandomSource randomsource = RandomSource.create(p_115266_.seed);
-		for(int i = 7; i >= 0; --i) {
-			afloat[i] = f;
-			afloat1[i] = f1;
-			f += (float)(randomsource.nextInt(11) - 5);
-			f1 += (float)(randomsource.nextInt(11) - 5);
-		}
-		Matrix4f matrix4f = p_115269_.last().pose();
-		for(int j = 0; j < 4; ++j) {
-			RandomSource randomsource1 = RandomSource.create(p_115266_.seed);
-			for(int k = 0; k < 3; ++k) {
-				int l = 7;
-				int i1 = 0;
-				if (k > 0) {
-					l = 7 - k;
-				}
-				if (k > 0) {
-					i1 = l - 2;
-				}
-				float f2 = afloat[l] - f;
-				float f3 = afloat1[l] - f1;
-				for(int j1 = l; j1 >= i1; --j1) {
-					float f4 = f2;
-					float f5 = f3;
-					if (k == 0) {
-						f2 += (float)(randomsource1.nextInt(11) - 5);
-						f3 += (float)(randomsource1.nextInt(11) - 5);
-					} else {
-						f2 += (float)(randomsource1.nextInt(31) - 15);
-						f3 += (float)(randomsource1.nextInt(31) - 15);
-					}
-					float f10 = 0.1F + (float)j * 0.2F;
-					if (k == 0) {
-						f10 *= (float)j1 * 0.1F + 1.0F;
-					}
-					float f11 = 0.1F + (float)j * 0.2F;
-					if (k == 0) {
-						f11 *= ((float)j1 - 1.0F) * 0.1F + 1.0F;
-					}
-					VertexConsumer vertexconsumer;
-					if (isBorder(j1, i1)) {
-						vertexconsumer = p_115270_.getBuffer(RenderType.endPortal());
-					} else {
-						vertexconsumer = p_115270_.getBuffer(RenderType.lightning());
-					}
-					Random randCol = new Random(milliTime() * p_115266_.seed);
-					float[] colors = new float[]{randCol.nextFloat(), randCol.nextFloat(), randCol.nextFloat()};
-					float r = colors[0];
-					float g = colors[1];
-					float b = colors[2];
-					float alpha = 1F;
-					quad(matrix4f, vertexconsumer, f2, f3, j1, f4, f5, r,g,b, alpha, f11, false, false, true, false);
-					quad(matrix4f, vertexconsumer, f2, f3, j1, f4, f5, r,g,b, alpha, f11, true, false, true, true);
-					quad(matrix4f, vertexconsumer, f2, f3, j1, f4, f5, r,g,b, alpha, f11, true, true, false, true);
-					quad(matrix4f, vertexconsumer, f2, f3, j1, f4, f5, r,g,b, alpha, f11, false, true, false, false);
-				}
-			}
-		}
-	}
+    public StarLightingRenderer(EntityRendererProvider.Context context) {
+        super(context);
+    }
 
-	private boolean isBorder(int j1, int i1) {
-		int range = 10;
-		return j1 == 0 || j1 == range || i1 == 0 || i1 == range;
-	}
+    @Override
+    public void render(LightningBolt lightning, float entityYaw, float partialTicks, PoseStack pose, MultiBufferSource buffer, int packedLight) {
+        float[] xOffsets = new float[8];
+        float[] zOffsets = new float[8];
+        float x = 0.0F;
+        float z = 0.0F;
+        RandomSource random = RandomSource.create(lightning.seed);
 
-	private long milliTime() {
-		return System.nanoTime() / 100000000L;
-	}
+        for (int i = 7; i >= 0; --i) {
+            xOffsets[i] = x;
+            zOffsets[i] = z;
+            x += (float) (random.nextInt(11) - 5);
+            z += (float) (random.nextInt(11) - 5);
+        }
 
-	private static void quad(Matrix4f p_253966_, VertexConsumer p_115274_, float p_115275_, float p_115276_, int p_115277_, float p_115278_, float p_115279_, float p_115280_, float p_115281_, float p_115282_, float p_115283_, float p_115284_, boolean p_115285_, boolean p_115286_, boolean p_115287_, boolean p_115288_) {
-		float r = 1.0F;
-		float g = 0.0F;
-		float b = 0.0F;
-		float alpha = 1F;
-		p_115274_.vertex(p_253966_, p_115275_ + (p_115285_ ? p_115284_ : -p_115284_), (float)(p_115277_ * 16), p_115276_ + (p_115286_ ? p_115284_ : -p_115284_)).color(r, g, b, alpha).endVertex();
-		p_115274_.vertex(p_253966_, p_115278_ + (p_115285_ ? p_115283_ : -p_115283_), (float)((p_115277_ + 1) * 16), p_115279_ + (p_115286_ ? p_115283_ : -p_115283_)).color(r, g, b, alpha).endVertex();
-		p_115274_.vertex(p_253966_, p_115278_ + (p_115287_ ? p_115283_ : -p_115283_), (float)((p_115277_ + 1) * 16), p_115279_ + (p_115288_ ? p_115283_ : -p_115283_)).color(r, g, b, alpha).endVertex();
-		p_115274_.vertex(p_253966_, p_115275_ + (p_115287_ ? p_115284_ : -p_115284_), (float)(p_115277_ * 16), p_115276_ + (p_115288_ ? p_115284_ : -p_115284_)).color(r, g, b, alpha).endVertex();
-	}
+        VertexConsumer consumer = buffer.getBuffer(ModRenderTypes.STAR_LIGHTNING);
+        Matrix4f matrix = pose.last().pose();
+
+        for (int layer = 0; layer < 4; ++layer) {
+            RandomSource layerRandom = RandomSource.create(lightning.seed);
+
+            for (int branch = 0; branch < 3; ++branch) {
+                int end = 7;
+                int start = 0;
+                if (branch > 0) {
+                    end = 7 - branch;
+                    start = end - 2;
+                }
+
+                float currentX = xOffsets[end] - x;
+                float currentZ = zOffsets[end] - z;
+
+                for (int segment = end; segment >= start; --segment) {
+                    float prevX = currentX;
+                    float prevZ = currentZ;
+
+                    if (branch == 0) {
+                        currentX += (float) (layerRandom.nextInt(11) - 5);
+                        currentZ += (float) (layerRandom.nextInt(11) - 5);
+                    } else {
+                        currentX += (float) (layerRandom.nextInt(31) - 15);
+                        currentZ += (float) (layerRandom.nextInt(31) - 15);
+                    }
+
+                    float width1 = 0.1F + (float) layer * 0.2F;
+                    if (branch == 0) {
+                        width1 *= (float) segment * 0.1F + 1.0F;
+                    }
+
+                    float width2 = 0.1F + (float) layer * 0.2F;
+                    if (branch == 0) {
+                        width2 *= ((float) segment - 1.0F) * 0.1F + 1.0F;
+                    }
+
+                    quad(matrix, consumer, currentX, currentZ, segment, prevX, prevZ, width1, width2, false, false, true, false);
+                    quad(matrix, consumer, currentX, currentZ, segment, prevX, prevZ, width1, width2, true, false, true, true);
+                    quad(matrix, consumer, currentX, currentZ, segment, prevX, prevZ, width1, width2, true, true, false, true);
+                    quad(matrix, consumer, currentX, currentZ, segment, prevX, prevZ, width1, width2, false, true, false, false);
+                }
+            }
+        }
+    }
+
+    private static void quad(Matrix4f matrix, VertexConsumer consumer,
+                             float x1, float z1, int y, float x2, float z2,
+                             float width1, float width2,
+                             boolean flipX1, boolean flipZ1, boolean flipX2, boolean flipZ2) {
+        consumer.vertex(matrix, x1 + (flipX1 ? width2 : -width2), (float) (y * 16), z1 + (flipZ1 ? width2 : -width2)).color(0.45F, 0.45F, 0.5F, 1.0F).endVertex();
+        consumer.vertex(matrix, x2 + (flipX1 ? width1 : -width1), (float) ((y + 1) * 16), z2 + (flipZ1 ? width1 : -width1)).color(0.45F, 0.45F, 0.5F, 1.0F).endVertex();
+        consumer.vertex(matrix, x2 + (flipX2 ? width1 : -width1), (float) ((y + 1) * 16), z2 + (flipZ2 ? width1 : -width1)).color(0.45F, 0.45F, 0.5F, 1.0F).endVertex();
+        consumer.vertex(matrix, x1 + (flipX2 ? width2 : -width2), (float) (y * 16), z1 + (flipZ2 ? width2 : -width2)).color(0.45F, 0.45F, 0.5F, 1.0F).endVertex();
+    }
 }

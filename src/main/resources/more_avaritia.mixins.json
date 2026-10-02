@@ -9,7 +9,8 @@
     "MixinLivingEntity"
   ],
   "client": [
-    "MixinItemRenderer"
+    "MixinItemRenderer",
+    "MixinItemInHandRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.wzz.more_avaritia.MoreAvaritiaMod;
 import net.wzz.more_avaritia.client.comic.CosmicModelLoader;
+import net.wzz.more_avaritia.client.comic.InfinityEnergyModelLoader;
 
 import java.io.IOException;
 
@@ -22,5 +23,6 @@ public class ModClient {
     @SubscribeEvent
     public static void registerLoaders(ModelEvent.RegisterGeometryLoaders event) {
         event.register("cosmic", CosmicModelLoader.INSTANCE);
+        event.register("infinity_energy", InfinityEnergyModelLoader.INSTANCE);
     }
 }

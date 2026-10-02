@@ -2,6 +2,7 @@
 package net.wzz.more_avaritia.item;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -16,7 +17,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public abstract class InfinityFakeItem extends ArmorItem {
-	private int healTime;
+	private static final String HEAL_TIMER_KEY = "more_avaritia_fake_heal_timer";
+
 	public InfinityFakeItem(ArmorItem.Type type, Item.Properties properties) {
 		super(new ArmorMaterial() {
 			@Override
@@ -70,13 +72,20 @@ public abstract class InfinityFakeItem extends ArmorItem {
 	@Override
 	public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
 		super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
-		if (p_41406_ instanceof Player player && InfinityUtils.hasFakeInfinityArmor(player)) {
-			healTime++;
-			if (healTime >= 25) {
+		if (p_41405_.isClientSide || this.type != ArmorItem.Type.CHESTPLATE || !(p_41406_ instanceof Player player)) {
+			return;
+		}
+		CompoundTag data = player.getPersistentData();
+		if (InfinityUtils.hasFakeInfinityArmor(player)) {
+			int healTime = data.getInt(HEAL_TIMER_KEY) + 1;
+			if (healTime >= 20) {
 				healTime = 0;
 				player.heal(20.0f);
 			}
-		} else if (healTime != 0) healTime = 0;
+			data.putInt(HEAL_TIMER_KEY, healTime);
+		} else if (data.contains(HEAL_TIMER_KEY)) {
+			data.remove(HEAL_TIMER_KEY);
+		}
 	}
 
 	public static class Helmet extends InfinityFakeItem {

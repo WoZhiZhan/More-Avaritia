@@ -4,6 +4,7 @@ package net.wzz.more_avaritia.item.tools;
 import committee.nova.mods.avaritia.common.entity.EndestPearlEntity;
 import committee.nova.mods.avaritia.init.registry.ModEntities;
 import committee.nova.mods.avaritia.init.registry.ModItems;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -19,12 +20,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class InfinityShovelItem extends committee.nova.mods.avaritia.common.item.tools.infinity.InfinityShovelItem implements IItemType {
+	private static final String SUPPRESS_KEY = "more_avaritia_shovel_suppress";
+
 	public InfinityShovelItem() {
 		super();
 	}
-
-	private int modifyTime;
-	private boolean isModify;
 
 	@Override
 	public Type getItemType() {
@@ -40,15 +40,15 @@ public class InfinityShovelItem extends committee.nova.mods.avaritia.common.item
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
 		if (p_41433_.isShiftKeyDown()) {
-			modifyTime = 0;
-			isModify = true;
+			p_41433_.getPersistentData().putInt(SUPPRESS_KEY, 30);
 		}
 		return super.use(p_41432_, p_41433_, p_41434_);
 	}
 
 	@Override
 	public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-		if (!entity.level().isClientSide && entity.isShiftKeyDown() && !isModify) {
+		if (!entity.level().isClientSide && entity.isShiftKeyDown()
+				&& entity.getPersistentData().getInt(SUPPRESS_KEY) <= 0) {
 			EndestPearlEntity pearl = (ModEntities.ENDER_PEARL.get()).create(entity.level());
 			if (pearl != null) {
 				pearl.setItem(new ItemStack(ModItems.endest_pearl.get()));
@@ -64,11 +64,11 @@ public class InfinityShovelItem extends committee.nova.mods.avaritia.common.item
 	@Override
 	public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
 		super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
-		if (isModify) {
-			modifyTime++;
-			if (modifyTime >= 30) {
-				modifyTime = 0;
-				isModify = false;
+		if (p_41406_ instanceof Player player) {
+			CompoundTag data = player.getPersistentData();
+			int suppress = data.getInt(SUPPRESS_KEY);
+			if (suppress > 0) {
+				data.putInt(SUPPRESS_KEY, suppress - 1);
 			}
 		}
 	}

@@ -1,0 +1,13 @@
+{
+  "vertex": "more_avaritia:infinity_energy_gui",
+  "fragment": "more_avaritia:infinity_energy_gui",
+  "attributes": ["Position", "Color", "Normal"],
+  "samplers": [],
+  "uniforms": [
+    {"name": "ModelViewMat", "type": "matrix4x4", "count": 16,
+     "values": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]},
+    {"name": "ProjMat", "type": "matrix4x4", "count": 16,
+     "values": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]},
+    {"name": "IconTime", "type": "float", "count": 1, "values": [0.0]}
+  ]
+}

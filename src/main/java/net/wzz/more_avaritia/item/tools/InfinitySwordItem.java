@@ -56,7 +56,7 @@ public class InfinitySwordItem extends SwordItem implements IItemType {
 			{
 				if (victim instanceof EnderDragon dragon) {
                     if (livingEntity instanceof Player player) {
-                        dragon.hurt(dragon.head, player.damageSources().source(ModDamageTypes.INFINITY, player, victim), Float.POSITIVE_INFINITY);
+                        dragon.hurt(dragon.head, player.damageSources().source(ModDamageTypes.INFINITY, player, player), Float.POSITIVE_INFINITY);
 						dragon.setHealth(0.0F);
 						break label27;
 					}
@@ -64,16 +64,16 @@ public class InfinitySwordItem extends SwordItem implements IItemType {
 
 				if (victim instanceof Player pvp) {
                     if (InfinityUtils.isInfinite(pvp)) {
-						victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim), 4.0F);
+						victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, livingEntity), 4.0F);
 					} else {
-						victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim), Float.POSITIVE_INFINITY);
+						victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, livingEntity), Float.POSITIVE_INFINITY);
 					}
 				} else {
-					victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim), Float.POSITIVE_INFINITY);
+					victim.hurt(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, livingEntity), Float.POSITIVE_INFINITY);
 				}
 			}
 			victim.lastHurtByPlayerTime = 60;
-			victim.getCombatTracker().recordDamage(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim), victim.getHealth());
+			victim.getCombatTracker().recordDamage(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, livingEntity), victim.getHealth());
 			if (victim instanceof Player victimP) {
                 if (InfinityUtils.isInfinite(victimP)) {
 					victimP.level().explode(livingEntity, victimP.getBlockX(), victimP.getBlockY(), victimP.getBlockZ(), 25.0F, ExplosionInteraction.BLOCK);
@@ -82,7 +82,7 @@ public class InfinitySwordItem extends SwordItem implements IItemType {
 			}
 			InfinityUtils.sweepAttack(level, livingEntity, victim);
 			victim.setHealth(0.0F);
-			victim.die(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, victim));
+			victim.die(livingEntity.damageSources().source(ModDamageTypes.INFINITY, livingEntity, livingEntity));
 		}
 		return true;
 	}

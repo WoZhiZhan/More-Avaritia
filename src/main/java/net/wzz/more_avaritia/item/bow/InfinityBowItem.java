@@ -29,8 +29,6 @@ public class InfinityBowItem extends committee.nova.mods.avaritia.common.item.to
 		super();
 	}
 
-	private int shootTimer;
-
 	@Override
 	public Type getItemType() {
 		return Type.BOW;
@@ -38,42 +36,43 @@ public class InfinityBowItem extends committee.nova.mods.avaritia.common.item.to
 
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level p_40672_, Player p_40673_, InteractionHand p_40674_) {
-		this.shootTimer = 0;
 		return super.use(p_40672_, p_40673_, p_40674_);
 	}
 
 	@Override
 	public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int timeLeft) {
 		super.onUseTick(level, entity, stack, timeLeft);
-		this.shootTimer++;
-		if (!level.isClientSide && entity instanceof Player player && this.shootTimer >= 10) {
-			int drawTime = this.getUseDuration(stack) - timeLeft;
-			drawTime = ForgeEventFactory.onArrowLoose(stack, level, player, drawTime, true);
-			if (drawTime < 0) {
-				return;
-			}
-			float VELOCITY_MULTIPLIER = 1.2F;
-			float DAMAGE_MULTIPLIER = 5000.0F;
-			float draw = getPowerForTime(drawTime);
-			float powerForTime = draw * VELOCITY_MULTIPLIER;
-			AbstractArrow arrowEntity = this.customArrow(new HeavenArrowEntity(player));
-			drawTime = ForgeEventFactory.onArrowLoose(stack, level, player, drawTime, true);
-			if (drawTime < 0) {
-				return;
-			}
-			if (stack.getOrCreateTag().getBoolean("tracer") && (double) powerForTime >= 0.1) {
-				arrowEntity = this.customArrow(new TraceArrowEntity(player));
-			}
-			arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, powerForTime * 3.0F, 0.01F);
-			if (draw == 1.0F) {
-				arrowEntity.setCritArrow(true);
-			}
-			arrowEntity.setBaseDamage(arrowEntity.getBaseDamage() * (double) DAMAGE_MULTIPLIER);
-			this.addEnchant(stack, level, player, arrowEntity, powerForTime);
-			level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.random.nextFloat() * 0.4F + 1.2F) + powerForTime * 0.5F);
-			player.awardStat(Stats.ITEM_USED.get(this));
-			this.shootTimer = 0;
+		if (level.isClientSide || !(entity instanceof Player player)) {
+			return;
 		}
+		int drawTime = this.getUseDuration(stack) - timeLeft;
+		if (drawTime <= 0 || drawTime % 10 != 0) {
+			return;
+		}
+		drawTime = ForgeEventFactory.onArrowLoose(stack, level, player, drawTime, true);
+		if (drawTime < 0) {
+			return;
+		}
+		float VELOCITY_MULTIPLIER = 1.2F;
+		float DAMAGE_MULTIPLIER = 5000.0F;
+		float draw = getPowerForTime(drawTime);
+		float powerForTime = draw * VELOCITY_MULTIPLIER;
+		AbstractArrow arrowEntity = this.customArrow(new HeavenArrowEntity(player));
+		drawTime = ForgeEventFactory.onArrowLoose(stack, level, player, drawTime, true);
+		if (drawTime < 0) {
+			return;
+		}
+		if (stack.getOrCreateTag().getBoolean("tracer") && (double) powerForTime >= 0.1) {
+			arrowEntity = this.customArrow(new TraceArrowEntity(player));
+		}
+		arrowEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, powerForTime * 3.0F, 0.01F);
+		if (draw == 1.0F) {
+			arrowEntity.setCritArrow(true);
+		}
+		arrowEntity.setBaseDamage(arrowEntity.getBaseDamage() * (double) DAMAGE_MULTIPLIER);
+		this.addEnchant(stack, level, player, arrowEntity, powerForTime);
+		level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.random.nextFloat() * 0.4F + 1.2F) + powerForTime * 0.5F);
+		player.awardStat(Stats.ITEM_USED.get(this));
 	}
 
 	private void addEnchant(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity player, AbstractArrow arrowEntity, float powerForTime) {

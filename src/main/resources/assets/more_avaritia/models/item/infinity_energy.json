@@ -1,0 +1,7 @@
+{
+  "loader": "more_avaritia:infinity_energy",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "more_avaritia:item/universe_heart"
+  }
+}

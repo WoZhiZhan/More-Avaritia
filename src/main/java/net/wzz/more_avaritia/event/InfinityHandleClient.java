@@ -135,7 +135,7 @@ public class InfinityHandleClient {
         if (e.getItemStack().getItem() instanceof InfinityGodSwordItem) {
             long time = System.currentTimeMillis();
             float hue = (time % 3000L) / 3000.0F; // 0~1 循环
-            int rgb = Mth.hsvToRgb(hue, 1.0F, 1.0F);
+            int rgb = Mth.hsvToRgb(hue, 0.8F, 1.0F);
             int dynamicColor = 0xFF000000 | rgb;
             e.setBackgroundStart(dynamicColor);
             e.setBorderStart(dynamicColor);
@@ -197,7 +197,7 @@ public class InfinityHandleClient {
     }
 
     @SubscribeEvent
-    public static void screenRender(ScreenEvent.Render event) {
+    public static void screenRender(ScreenEvent.Render.Pre event) {
         if (InfinityUtils.hasInfinityArmor(Minecraft.getInstance().player) && event.getScreen() instanceof DeathScreen) {
             event.setCanceled(true);
             Minecraft.getInstance().setScreen(null);

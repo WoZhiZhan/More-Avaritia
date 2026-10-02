@@ -1,0 +1,40 @@
+{
+  "type": "avaritia:shaped_table",
+  "tier": 4,
+  "pattern": [
+    "ABBBBBBBA",
+    "BACCCCCAB",
+    "BCDDDDDCB",
+    "BCDEEEDCB",
+    "BCDEFEDCB",
+    "BCDEEEDCB",
+    "BCDDDDDCB",
+    "BACCCCCAB",
+    "ABBBBBBBA"
+  ],
+  "key": {
+    "A": {
+      "item": "avaritia:infinity_nugget"
+    },
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "C": {
+      "item": "avaritia:crystal_matrix_ingot"
+    },
+    "D": {
+      "item": "minecraft:nether_star"
+    },
+    "E": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "F": {
+      "item": "avaritia:infinity_catalyst"
+    }
+  },
+  "result": {
+    "item": "more_avaritia:infinity_energy",
+    "type": "forge:nbt",
+    "nbt": "{Damage:0}"
+  }
+}

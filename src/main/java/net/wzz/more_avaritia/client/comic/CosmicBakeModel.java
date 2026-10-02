@@ -53,7 +53,7 @@ public class CosmicBakeModel extends WrappedItemModel {
         float scale = 1f;
         if (transformType == ItemDisplayContext.GUI) {
             scale = 100.0F;
-        } else {
+        } else if (mc.player != null) {
             yaw = (float) (mc.player.getYRot() * 2.0f * Math.PI / 360.0);
             pitch = -(float) (mc.player.getXRot() * 2.0f * Math.PI / 360.0);
         }

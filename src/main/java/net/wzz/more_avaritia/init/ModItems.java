@@ -44,6 +44,7 @@ public class ModItems {
 	public static final RegistryObject<Item> INFINITY_LEGS = REGISTRY.register("infinity_legs", InfinityArmorItem.Leggings::new);
 	public static final RegistryObject<Item> INFINITY_BOOTS = REGISTRY.register("infinity_boots", InfinityArmorItem.Boots::new);
 	public static final RegistryObject<Item> LIGHTING_STAFF = REGISTRY.register("lighting_staff", LightningStaffItem::new);
+	public static final RegistryObject<Item> INFINITY_ENERGY = REGISTRY.register("infinity_energy", InfinityEnergyItem::new);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

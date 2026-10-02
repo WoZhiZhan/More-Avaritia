@@ -38,4 +38,34 @@ public class ModRenderTypes extends RenderType {
                     .setDepthTestState(LEQUAL_DEPTH_TEST)
                     .setLightmapState(NO_LIGHTMAP)
                     .createCompositeState(false));
+
+    public static final RenderType STAR_LIGHTNING = create(
+            "more_avaritia:starry_lightning",
+            DefaultVertexFormat.POSITION_COLOR,
+            VertexFormat.Mode.QUADS,
+            256,
+            true,
+            true,
+            CompositeState.builder()
+                    .setShaderState(new RenderStateShard.ShaderStateShard(() -> ModShaders.STAR_LIGHTNING_SHADER))
+                    .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                    .setDepthTestState(LEQUAL_DEPTH_TEST)
+                    .setCullState(NO_CULL)
+                    .setWriteMaskState(COLOR_WRITE)
+                    .createCompositeState(true));
+
+    public static final RenderType INFINITY_ENERGY = create(
+            "more_avaritia:infinity_energy",
+            DefaultVertexFormat.POSITION_COLOR_TEX,
+            VertexFormat.Mode.QUADS,
+            512,
+            true,
+            true,
+            CompositeState.builder()
+                    .setShaderState(new RenderStateShard.ShaderStateShard(() -> ModShaders.INFINITY_ENERGY_SHADER))
+                    .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                    .setDepthTestState(LEQUAL_DEPTH_TEST)
+                    .setCullState(NO_CULL)
+                    .setWriteMaskState(COLOR_WRITE)
+                    .createCompositeState(true));
 }

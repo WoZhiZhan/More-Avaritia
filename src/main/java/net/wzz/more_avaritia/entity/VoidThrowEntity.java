@@ -61,6 +61,7 @@ public class VoidThrowEntity extends ThrowableItemProjectile {
 
     public void setShooter(LivingEntity shooter) {
         this.shooter = shooter;
+        this.setOwner(shooter);
     }
 
     public void handleEntityEvent(byte pId) {
